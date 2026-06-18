@@ -171,6 +171,20 @@
   .meta-line a.srclink:hover{color:var(--ink);}
   .meta-line a.maplink{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted;}
   .meta-line a.maplink:hover{color:var(--accent-2);}
+  .appstat{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.02em;padding:2px 8px;border-radius:5px;background:#1f6f5c;color:#fff;margin-right:2px;}
+  .appstat.gray{background:#8a857c;} .appstat.red{background:#b6432e;} .appstat.gold{background:#9a7b2e;}
+  .apps{margin:18px 0 6px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:14px 16px;}
+  .apps-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);font-weight:700;font-size:14px;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:8px;}
+  .apps-head .apps-c{font-size:11.5px;color:#8a857c;font-weight:600;}
+  .apps-empty{font-size:13px;color:var(--ink-soft);font-style:italic;padding:6px 2px;}
+  .apps-row{display:grid;grid-template-columns:1.4fr 1.6fr .7fr .8fr .7fr;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px solid var(--line);font-size:13px;}
+  .apps-row:last-child{border-bottom:0;}
+  .apps-co{font-weight:700;} .apps-co a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+  .apps-pos{color:var(--ink-soft);} .apps-site{font-size:11.5px;color:#8a857c;}
+  .apps-st{font-weight:800;font-size:11px;padding:2px 8px;border-radius:5px;background:#e4efe9;color:#1f6f5c;text-align:center;}
+  .apps-st.gold{background:#f1e9d4;color:#9a7b2e;} .apps-st.red{background:#eeebe5;color:#b6432e;}
+  .apps-dt{font-size:11.5px;color:#8a857c;text-align:right;}
+  @media(max-width:680px){.apps-row{grid-template-columns:1fr 1fr;}.apps-site,.apps-dt{display:none;}}
 </style>
 </head>
 <body>
@@ -189,6 +203,8 @@
   </header>
 
   <section class="stats" id="stats"></section>
+
+  <section class="apps" id="apps"></section>
 
   <section class="controls">
     <div class="ctlrow">
@@ -303,67 +319,10 @@
       },
       "tier": "A",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%ED%95%9C%EC%9D%BC%EC%9D%B4%EC%95%A4%EC%94%A8%20%EC%84%9C%EC%9A%B8%20%EA%B0%95%EC%84%9C"
-    },
-    {
-      "id": "kd-gongmu-team-lead",
-      "company": "KD건설(주)",
-      "title": "건축사업팀 공무팀 팀장",
-      "level": "팀장급",
-      "scale": "KD그룹 계열 종합건설",
-      "source": "사람인",
-      "url": "https://www.saramin.co.kr/zf_user/search?searchword=KD%EA%B1%B4%EC%84%A4%20%EA%B3%B5%EB%AC%B4",
-      "location": "서울 송파",
-      "exp": "경력 10~15년",
-      "domains": [
-        "공무",
-        "사업관리",
-        "건설"
-      ],
-      "fit_score": 77,
-      "fit_tier": "상",
-      "fit_reasons": [
-        "본사 공무팀장 = 2순위 핵심(공무·원가·정산 직결)",
-        "팀장 직급 정합, 서울 송파 통근권",
-        "단 '건축사업팀' 공종 — 본인 토목 경력과 상이(공무 스킬은 전이 가능)"
-      ],
-      "is_new": false,
-      "deadline": "2026-07-15",
-      "deadline_type": "date",
-      "deadline_label": "",
-      "deadline_note": "",
-      "process": [
-        "서류",
-        "1차 면접",
-        "2차 면접",
-        "처우협의"
-      ],
-      "process_confirmed": false,
-      "process_note": "",
-      "has_aptitude": "미확인",
-      "brief": {
-        "company_status": "[요확인] KD그룹 계열 종합건설. 재무 상세 확인 필요.",
-        "verdict": "본사 공무팀장 = A버전 핵심. 팀장 직급 정합 양호.",
-        "strengths": [
-          "본사 공무·견적·실행예산·정산 직결",
-          "현장+본사 양쪽 이해"
-        ],
-        "gaps": [
-          "건축 공종 — 본인 토목 경력과 공종 상이(공무·원가 역량은 전이 가능)",
-          "MBA·스타트업은 톤다운 권장(공무 포지션)"
-        ],
-        "pass_odds": "공무 직무 정합 매우 높음.",
-        "strategy": "A버전(공무·원가·분쟁 전면).",
-        "sources": [
-          {
-            "title": "사람인 검색",
-            "url": "https://www.saramin.co.kr/zf_user/search?searchword=KD%EA%B1%B4%EC%84%A4%20%EA%B3%B5%EB%AC%B4"
-          }
-        ]
-      },
-      "tier": "A",
-      "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/KD%EA%B1%B4%EC%84%A4%20%EC%84%9C%EC%9A%B8%20%EC%86%A1%ED%8C%8C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EC%84%9C",
+      "app_status": "지원완료 · 서류검토중",
+      "app_status_date": "2026-06-11"
     },
     {
       "id": "csc-planning-director",
@@ -373,7 +332,7 @@
       "scale": "종합건설",
       "source": "사람인",
       "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%94%A8%EC%97%90%EC%8A%A4%EC%94%A8%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EA%B2%BD%EC%98%81%EA%B8%B0%ED%9A%8D",
-      "location": "충북 청주",
+      "location": "충북 청주시 흥덕구 옥산면 옥산산단2로 9",
       "exp": "경력 10년↑",
       "domains": [
         "경영기획",
@@ -423,7 +382,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%94%A8%EC%97%90%EC%8A%A4%EC%94%A8%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EC%B6%A9%EB%B6%81%20%EC%B2%AD%EC%A3%BC"
+      "map_url": "https://map.naver.com/p/search/%EC%B6%A9%EB%B6%81%20%EC%B2%AD%EC%A3%BC%EC%8B%9C%20%ED%9D%A5%EB%8D%95%EA%B5%AC%20%EC%98%A5%EC%82%B0%EB%A9%B4%20%EC%98%A5%EC%82%B0%EC%82%B0%EB%8B%A82%EB%A1%9C%209",
+      "location_verified": true,
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "seyoung-strategy-head",
@@ -433,7 +395,7 @@
       "scale": "중견 건설 · 평균연봉 6,000↑",
       "source": "사람인",
       "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%84%B8%EC%98%81%EA%B1%B4%EC%84%A4%20%EB%AF%B8%EB%9E%98%EC%A0%84%EB%9E%B5%EC%8B%A4",
-      "location": "서울 강남",
+      "location": "서울 강남구 봉은사로 215 KTS빌딩 5층",
       "exp": "경력 15년↑",
       "domains": [
         "전략기획",
@@ -483,7 +445,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%84%B8%EC%98%81%EA%B1%B4%EC%84%A4%20%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8"
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%B4%89%EC%9D%80%EC%82%AC%EB%A1%9C%20215%20KTS%EB%B9%8C%EB%94%A9%205%EC%B8%B5",
+      "location_verified": true,
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "sfinchon-fpna-lead",
@@ -543,7 +508,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%97%90%EC%8A%A4%EC%97%90%ED%94%84%EC%9D%B8%EC%B4%8C%20%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "dain-planning-office",
@@ -602,7 +570,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EB%8B%A4%EC%9D%B8%EC%94%A8%EC%97%A0%EA%B1%B4%EC%B6%95%EC%82%AC%EC%82%AC%EB%AC%B4%EC%86%8C%20%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "p2p-1gun-dev-pm",
@@ -661,7 +632,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%ED%94%BC%ED%94%8C%ED%88%AC%ED%94%BC%ED%94%8C%20%EC%84%9C%EC%9A%B8%20%EC%A2%85%EB%A1%9C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%A2%85%EB%A1%9C",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "suyang-housing-dev",
@@ -720,7 +694,10 @@
       },
       "tier": "C",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%88%98%EC%96%91%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EC%84%9C%EC%9A%B8%20%EA%B5%AC%EB%A1%9C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B5%AC%EB%A1%9C",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "dblock-dev-planning",
@@ -779,7 +756,10 @@
       },
       "tier": "B",
       "source_url": "https://www.saramin.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%97%90%EC%9D%B4%EC%B9%98%EC%BC%80%EC%9D%B4%EC%97%90%EC%8A%A4%EC%9D%B8%EB%B2%A0%EC%8A%A4%ED%8A%B8%EB%A8%BC%ED%8A%B8%20%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "umi-const-planning",
@@ -838,7 +818,10 @@
       },
       "tier": "B",
       "source_url": "https://www.jobkorea.co.kr",
-      "map_url": "https://map.naver.com/p/search/%EC%9A%B0%EB%AF%B8%EA%B1%B4%EC%84%A4%E3%88%9C%20%EA%B2%BD%EA%B8%B0%20%EA%B3%BC%EC%B2%9C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%20%EA%B3%BC%EC%B2%9C",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "hanul-cm-lead",
@@ -898,7 +881,10 @@
       },
       "tier": "B",
       "source_url": "https://www.jobkorea.co.kr",
-      "map_url": "https://map.naver.com/p/search/%E3%88%9C%ED%95%9C%EC%9A%B8%EC%94%A8%EC%95%A4%EB%B9%84%20%EC%84%9C%EC%9A%B8%20%EA%B5%AC%EB%A1%9C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B5%AC%EB%A1%9C",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "sunjin-eng-bizdev",
@@ -957,7 +943,10 @@
       },
       "tier": "B",
       "source_url": "https://www.jobkorea.co.kr",
-      "map_url": "https://map.naver.com/p/search/%E3%88%9C%EC%84%A0%EC%A7%84%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A7%81%EC%A2%85%ED%95%A9%EA%B1%B4%EC%B6%95%EC%82%AC%EC%82%AC%EB%AC%B4%EC%86%8C%20%EA%B2%BD%EA%B8%B0%20%EA%B3%BC%EC%B2%9C"
+      "location_verified": false,
+      "map_url": "https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%20%EA%B3%BC%EC%B2%9C",
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "shinbo-civil-gongmu",
@@ -1014,7 +1003,9 @@
         ]
       },
       "tier": "A",
-      "map_url": "https://map.naver.com/p/search/%EC%8B%A0%EB%B3%B4"
+      "location_verified": false,
+      "app_status": "",
+      "app_status_date": ""
     },
     {
       "id": "shinbo-infra-pm",
@@ -1071,7 +1062,67 @@
         ]
       },
       "tier": "B",
-      "map_url": "https://map.naver.com/p/search/%EC%8B%A0%EB%B3%B4"
+      "location_verified": false,
+      "app_status": "",
+      "app_status_date": ""
+    }
+  ],
+  "applications": [
+    {
+      "company": "한일이앤씨㈜",
+      "position": "한일E&C 경력(건축/토목/안전) · 토목 정규직",
+      "site": "잡코리아",
+      "status": "서류검토중 · 열람",
+      "date": "2026-06-11",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "㈜에스티",
+      "position": "전문건설업 본사 토목 공무 · 정규직",
+      "site": "잡코리아",
+      "status": "서류검토중 · 열람",
+      "date": "2026-06-04",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "혜우이엔씨㈜",
+      "position": "종합건설사 본사 공무팀(적산·견적) 경력직",
+      "site": "잡코리아",
+      "status": "서류검토중 · 미열람",
+      "date": "2026-06-11",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "혜우이엔씨㈜",
+      "position": "종합건설사 본사공무 팀장·팀원[과장·부장] 상시",
+      "site": "잡코리아",
+      "status": "진행중(상시) · 열람",
+      "date": "2026-06-04",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "㈜월드이앤씨",
+      "position": "건설업 공무 경력직(토목공사업 공무)",
+      "site": "잡코리아",
+      "status": "진행중(~7/4) · 열람",
+      "date": "2026-06-11",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "㈜플러스종합건설",
+      "position": "본사 공무팀 정규직",
+      "site": "잡코리아",
+      "status": "진행중(~6/25) · 미열람",
+      "date": "2026-06-11",
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+    },
+    {
+      "company": "태인종합건설㈜",
+      "position": "본사 기술부 공무 담당자",
+      "site": "사람인",
+      "status": "지원완료 · 미열람",
+      "date": "2026-05-20",
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
     }
   ]
 }
@@ -1092,6 +1143,7 @@
     var snap = JSON.parse(document.getElementById("jobs-data").textContent.trim());
     state.jobs = (snap.jobs||[]).slice();
     state.lastCollected = (snap.meta && snap.meta.last_collected) || "—";
+    state.applications = (snap.applications||[]).slice();
   }catch(e){ console.error("snapshot parse fail", e); }
 
   // helpers
@@ -1217,7 +1269,7 @@
       '<div class="rank">'+rank+'</div>'+
       '<div class="entry-main">'+
         '<h2><span class="co">'+esc(j.company)+'</span> · <span class="ttl">'+esc(j.title)+'</span>'+(j.is_new?'<span class="newtag">NEW</span>':'')+stratBadge(j)+'</h2>'+
-        '<div class="meta-line">'+ddayChip(j)+'<span class="sep">·</span><span>'+esc(j.level||"")+'</span><span class="sep">·</span>'+(j.map_url?'<a class="maplink" href="'+esc(j.map_url)+'" target="_blank" rel="noopener">'+esc(j.location||"[요확인]")+' 📍</a>':'<span>'+esc(j.location||"")+'</span>')+'<span class="sep">·</span>'+(j.source_url?'<a class="srclink" href="'+esc(j.source_url)+'" target="_blank" rel="noopener">'+esc(j.source||"")+' ↗</a>':'<span>'+esc(j.source||"")+'</span>')+'</div>'+
+        '<div class="meta-line">'+ddayChip(j)+(j.app_status?'<span class="appstat">'+esc(j.app_status)+'</span>':'')+'<span class="sep">·</span><span>'+esc(j.level||"")+'</span><span class="sep">·</span>'+(j.map_url?'<a class="maplink" href="'+esc(j.map_url)+'" target="_blank" rel="noopener">'+esc(j.location||"[요확인]")+' 📍</a>':'<span>'+esc(j.location||"")+'</span>')+'<span class="sep">·</span>'+(j.source_url?'<a class="srclink" href="'+esc(j.source_url)+'" target="_blank" rel="noopener">'+esc(j.source||"")+' ↗</a>':'<span>'+esc(j.source||"")+'</span>')+'</div>'+
         weaponLine(j)+
         '<div class="tags">'+tags+'</div>'+
         processBlock(j)+
@@ -1282,7 +1334,20 @@
     }
   }
 
-  function renderAll(){ renderStats(); renderList(); document.getElementById("lastCollected").textContent = state.lastCollected; }
+  function statusClass(s){ s=s||""; if(/탈락|불합격|마감/.test(s)) return "red"; if(/최종|합격|면접|제안|처우|검토/.test(s)) return "gold"; return ""; }
+  function renderApps(){
+    var el=document.getElementById("apps"); if(!el) return;
+    var a=state.applications||[];
+    var head='<div class="apps-head"><span>내 지원 현황</span><span class="apps-c">'+a.length+'건</span></div>';
+    if(!a.length){ el.innerHTML=head+'<div class="apps-empty">지원 내역 없음 — 매일 자동수집이 사람인·잡코리아·리멤버·원티드의 지원현황을 채웁니다.</div>'; return; }
+    var rows=a.map(function(x){
+      var cls=statusClass(x.status);
+      var co=x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.company||"")+'</a>':esc(x.company||"");
+      return '<div class="apps-row"><span class="apps-co">'+co+'</span><span class="apps-pos">'+esc(x.position||"")+'</span><span class="apps-site">'+esc(x.site||"")+'</span><span class="apps-st '+cls+'">'+esc(x.status||"-")+'</span><span class="apps-dt">'+esc(x.date||"")+'</span></div>';
+    }).join("");
+    el.innerHTML=head+'<div class="apps-table">'+rows+'</div>';
+  }
+  function renderAll(){ renderStats(); renderApps(); renderList(); document.getElementById("lastCollected").textContent = state.lastCollected; }
 
   function setTrack(id, patch){
     var cur = trackOf(id);
