@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>건설 경영·전략·공무 채용 레이더 — 신재호</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#faf8f4; --ink:#15130f; --ink-soft:#4a4640; --line:#e3ddd1; --line-2:#d3cabb;
+    --card:#fffdf9; --accent:#b6432e; --accent-2:#1f6f5c; --gold:#9a7b2e;
+    --t-top:#b6432e; --t-high:#1f6f5c; --t-mid:#9a7b2e; --t-low:#8a857c;
+    --serif:"Pretendard","Iowan Old Style",Georgia,"Times New Roman",serif;
+    --sans:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Menlo",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px;}
+  .masthead{padding:34px 0 16px;border-bottom:2px solid var(--ink);}
+  .kicker{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);}
+  .status-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;padding:3px 9px;border:1px solid var(--line-2);border-radius:20px;color:var(--ink-soft);background:var(--card);}
+  .status-pill .dot{width:7px;height:7px;border-radius:50%;background:#bbb;}
+  .status-pill.live .dot{background:var(--accent-2);box-shadow:0 0 0 3px rgba(31,111,92,.16);}
+  .status-pill.snap .dot{background:var(--gold);}
+  h1.title{font-family:var(--serif);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:-.02em;margin:14px 0 8px;}
+  .subtitle{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);max-width:60ch;line-height:1.5;}
+  .byline{margin-top:14px;font-size:12.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+  .byline b{color:var(--ink);font-weight:600;}
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 8px;}
+  .stat{background:var(--paper);padding:16px 14px;}
+  .stat .n{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1;}
+  .stat .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:7px;}
+  .stat.tTop .n{color:var(--t-top);} .stat.tHigh .n{color:var(--t-high);} .stat.tNew .n{color:var(--accent);}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:22px 0 6px;}
+  .search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;border:1px solid var(--line-2);background:var(--card);border-radius:8px;padding:9px 12px;}
+  .search input{border:0;background:transparent;outline:0;width:100%;font-size:14px;color:var(--ink);font-family:var(--sans);}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.05em;padding:7px 12px;border:1px solid var(--line-2);background:var(--card);border-radius:20px;cursor:pointer;color:var(--ink-soft);user-select:none;}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .chip.dl[aria-pressed="true"]{background:var(--accent-2);border-color:var(--accent-2);color:#fff;}
+  .toggle{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 12px;border:1px solid var(--line-2);background:var(--card);border-radius:20px;cursor:pointer;color:var(--ink-soft);}
+  .toggle[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent);}
+  select.sortsel{font-family:var(--mono);font-size:11px;padding:7px 10px;border:1px solid var(--line-2);background:var(--card);border-radius:8px;color:var(--ink-soft);cursor:pointer;}
+  .ctlrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;width:100%;}
+  .ctlrow.sub{margin-top:2px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+  .ctllabel{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--line-2);align-self:center;}
+  .list{margin-top:6px;}
+  .group-head{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:26px 0 2px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;}
+  .group-head:first-child{margin-top:8px;}
+  .group-head .gcount{color:var(--line-2);font-size:10px;}
+  .group-head.urgent{color:var(--accent);border-color:var(--accent);}
+  .entry{display:grid;grid-template-columns:46px 1fr 96px;gap:18px;padding:22px 4px;border-bottom:1px solid var(--line);align-items:start;}
+  .entry.applied{opacity:.5;}
+  .rank{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--line-2);text-align:right;padding-top:2px;}
+  .entry-main h2{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0 0 3px;line-height:1.18;}
+  .entry-main h2 .co{color:var(--ink);}
+  .entry-main h2 .ttl{color:var(--ink-soft);font-weight:600;font-size:18px;font-style:italic;}
+  .newtag{display:inline-block;vertical-align:middle;margin-left:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;background:var(--accent);color:#fff;padding:2px 7px;border-radius:3px;}
+  .meta-line{font-size:12.5px;color:var(--ink-soft);margin:6px 0 9px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .meta-line .sep{color:var(--line-2);}
+  .dday{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;padding:2px 8px;border-radius:4px;border:1px solid var(--line-2);color:var(--ink-soft);background:var(--paper);}
+  .dday.soon{background:#f6e3df;color:var(--accent);border-color:#e3b9b0;}
+  .dday.month{background:#f1e9d4;color:var(--gold);border-color:#e0d2ab;}
+  .dday.rolling{background:#eef1ef;color:var(--accent-2);border-color:#cfe0d9;}
+  .dday.expired{background:#eeebe5;color:var(--t-low);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px;}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:3px 9px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-soft);background:var(--paper);}
+  .tag.dom{border-color:#cfe0d9;background:#f1f7f4;color:#2c6354;}
+  .process{margin:0 0 9px;font-size:12px;color:var(--ink-soft);display:flex;gap:6px;flex-wrap:wrap;align-items:center;line-height:1.9;}
+  .process .plabel{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--line-2);margin-right:2px;}
+  .process .step{font-family:var(--mono);font-size:10.5px;background:var(--card);border:1px solid var(--line-2);border-radius:4px;padding:2px 7px;color:var(--ink-soft);}
+  .process .arrow{color:var(--line-2);font-size:11px;}
+  .apt{font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:2px 8px;border-radius:4px;}
+  .apt-yes{background:#f6e3df;color:var(--accent);} .apt-no{background:#e4efe9;color:var(--accent-2);} .apt-unknown{background:#eeebe5;color:var(--t-low);}
+  .pnote{font-size:11px;color:var(--t-low);font-style:italic;}
+  .brief-btn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:5px 11px;border:1px solid var(--accent-2);background:var(--card);border-radius:20px;cursor:pointer;color:var(--accent-2);}
+  .brief-btn:hover{background:#f1f7f4;}
+  .brief-panel{display:none;margin-top:12px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent-2);border-radius:6px;}
+  .brief-panel.open{display:block;}
+  .bverdict{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 12px;line-height:1.45;}
+  .bsec{margin:11px 0;}
+  .blabel{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);margin-bottom:5px;}
+  .bsec p{font-size:13px;line-height:1.62;color:var(--ink-soft);margin:0;}
+  .bplus,.bminus{list-style:none;margin:0;padding:0;}
+  .bplus li,.bminus li{position:relative;padding-left:18px;font-size:13px;line-height:1.55;color:var(--ink-soft);margin:3px 0;}
+  .bplus li::before{content:"＋";position:absolute;left:0;color:var(--accent-2);font-weight:700;}
+  .bminus li::before{content:"－";position:absolute;left:0;color:var(--accent);font-weight:700;}
+  .bsrc{margin-top:12px;font-family:var(--mono);font-size:10.5px;color:var(--t-low);}
+  .bsrc a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:2px;}
+  .brief-empty{font-size:12.5px;color:var(--t-low);font-style:italic;}
+  .reasons{list-style:none;margin:0;padding:0;}
+  .reasons li{position:relative;padding-left:16px;font-size:13px;line-height:1.55;color:var(--ink-soft);margin:3px 0;}
+  .reasons li::before{content:"—";position:absolute;left:0;color:var(--line-2);}
+  .actions{margin-top:12px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .viewlink{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:1px;color:var(--ink);}
+  .viewlink:hover{color:var(--accent);border-color:var(--accent);}
+  .applybox{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;user-select:none;}
+  .applybox input{width:15px;height:15px;accent-color:var(--accent-2);cursor:pointer;}
+  .noteinput{font-family:var(--sans);font-size:12.5px;border:0;border-bottom:1px dashed var(--line-2);background:transparent;outline:0;padding:2px 0;min-width:140px;color:var(--ink);}
+  .noteinput:focus{border-bottom-style:solid;border-color:var(--accent-2);}
+  .noteinput::placeholder{color:var(--line-2);}
+  .score{text-align:center;padding-top:2px;}
+  .score .val{font-family:var(--serif);font-size:34px;font-weight:700;line-height:1;}
+  .score .tier{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;margin-top:5px;padding:2px 7px;border-radius:3px;display:inline-block;}
+  .tier-top{background:#f6e3df;color:var(--t-top);} .tier-high{background:#e4efe9;color:var(--t-high);}
+  .tier-mid{background:#f1e9d4;color:var(--t-mid);} .tier-low{background:#eeebe5;color:var(--t-low);}
+  .bar{height:3px;background:var(--line);border-radius:2px;margin-top:9px;overflow:hidden;}
+  .bar > i{display:block;height:100%;background:var(--ink);}
+  .empty{padding:60px 0;text-align:center;color:var(--ink-soft);font-family:var(--serif);font-style:italic;font-size:17px;}
+  footer{margin-top:40px;padding-top:18px;border-top:2px solid var(--ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);font-size:12.5px;padding:10px 18px;border-radius:8px;opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  @media(max-width:680px){
+    .stats{grid-template-columns:repeat(3,1fr);}
+    .entry{grid-template-columns:30px 1fr;gap:12px;}
+    .score{grid-column:2;display:flex;gap:14px;align-items:center;text-align:left;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+    .score .bar{display:none;}
+    .rank{font-size:18px;}
+  }
+  /* ─────────── 가독성 개선 오버라이드(한글 mono→Pretendard, 대비·크기 강화) ─────────── */
+  :root{ --ink-soft:#3b3833; }
+  .subtitle{font-size:16.5px;line-height:1.55;color:#46423a;}
+  .byline{font-size:13px;}
+  .status-pill{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.02em;}
+  .stat .n{font-size:32px;}
+  .stat .l{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.01em;text-transform:none;color:var(--ink-soft);margin-top:8px;}
+  .chip{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0;padding:7px 13px;}
+  .toggle{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0;padding:7px 13px;}
+  select.sortsel{font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 11px;}
+  .ctllabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.01em;text-transform:none;color:var(--ink-soft);}
+  .group-head{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.02em;text-transform:none;color:var(--ink);}
+  .group-head .gcount{font-family:var(--sans);font-size:11.5px;color:#8a857c;}
+  .entry{gap:20px;padding:24px 4px;}
+  .entry-main h2{font-size:22px;line-height:1.22;}
+  .entry-main h2 .ttl{font-style:normal;font-weight:600;font-size:18px;color:#2c2a25;}
+  .newtag{font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:.03em;}
+  .meta-line{font-size:13.5px;margin:7px 0 10px;}
+  .dday{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:0;padding:3px 9px;border-radius:5px;}
+  .tag{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0;padding:3px 10px;border-radius:5px;}
+  .process{font-size:13px;}
+  .process .plabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.01em;text-transform:none;color:var(--ink-soft);}
+  .process .step{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0;padding:3px 9px;border-radius:5px;}
+  .apt{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:0;padding:3px 9px;border-radius:5px;}
+  .reasons li{font-size:14px;line-height:1.68;margin:4px 0;color:var(--ink-soft);}
+  .viewlink{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0;}
+  .applybox{font-size:13px;}
+  .noteinput{font-size:13px;}
+  .brief-btn{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0;padding:6px 13px;}
+  .brief-panel{padding:18px 20px;}
+  .bverdict{font-size:16px;line-height:1.5;}
+  .blabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:none;}
+  .bsec p{font-size:14px;line-height:1.72;}
+  .bplus li,.bminus li{font-size:14px;line-height:1.66;margin:4px 0;}
+  .bsrc{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);}
+  .bsrc a{color:var(--accent-2);}
+  .brief-empty{font-size:13px;}
+  .score .tier{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.02em;padding:3px 8px;border-radius:4px;}
+  .tag.pay{background:#e4efe9;border-color:#bcd9cd;color:var(--accent-2);font-weight:700;}
+  .toggle.pay[aria-pressed="true"]{background:var(--accent-2);border-color:var(--accent-2);color:#fff;}
+  .strat-badge{font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:.03em;padding:2px 8px;border-radius:4px;margin-left:7px;vertical-align:middle;white-space:nowrap;}
+  .strat-A{background:#e7eef5;color:#1f4e79;}
+  .strat-B{background:#e4efe9;color:var(--accent-2);}
+  .strat-C{background:#f1e9d4;color:var(--gold);}
+  .weaponline{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin:4px 0 9px;background:var(--paper);border:1px dashed var(--line-2);border-radius:6px;padding:5px 10px;display:inline-block;}
+  .weaponline b{font-weight:700;color:var(--ink);}
+  #stratChips .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">
+      <span>JOB RADAR · 건설 경영 · 전략 · 공무</span>
+      <span id="statusPill" class="status-pill snap"><span class="dot"></span><span id="statusText">로컬</span></span>
+    </div>
+    <h1 class="title">건설 경영·전략·공무<br>채용 레이더</h1>
+    <p class="subtitle">중견 건설사 경영기획·전략·감사, 본사 공무, 디벨로퍼·PMC 사업관리 포지션을 원티드·리멤버·잡코리아·사람인에서 수집해 같은 보드에 누적하고, 신재호의 프로필에 맞춰 적합도·마감일·전형절차를 정리합니다.</p>
+    <div class="byline">
+      <span>큐레이션 · <b>신재호</b> · 건설 공무 15년 + 스타트업 IR + MBA</span>
+      <span>최종 수집 · <b id="lastCollected">—</b></span>
+    </div>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <section class="controls">
+    <div class="ctlrow">
+      <label class="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="text" placeholder="회사·직책·도메인·전형 검색…" />
+      </label>
+      <div class="chips" id="tierChips">
+        <span class="chip" data-tier="all" aria-pressed="true">전체</span>
+        <span class="chip" data-tier="최상" aria-pressed="false">최상 85+</span>
+        <span class="chip" data-tier="상" aria-pressed="false">상 75–84</span>
+        <span class="chip" data-tier="중" aria-pressed="false">중 65–74</span>
+      </div>
+      <button class="toggle" id="newOnly" aria-pressed="false">신규만</button>
+      <button class="toggle" id="hideApplied" aria-pressed="false">지원숨김</button>
+      <button class="toggle pay" id="payOnly" aria-pressed="false">📍 수도권</button>
+      <select class="sortsel" id="sortSel">
+        <option value="fit">적합도순</option>
+        <option value="deadline">마감임박순(그룹)</option>
+        <option value="new">신규순</option>
+        <option value="company">회사명순</option>
+      </select>
+    </div>
+    <div class="ctlrow sub">
+      <span class="ctllabel">마감</span>
+      <div class="chips" id="dlChips">
+        <span class="chip dl" data-dl="all" aria-pressed="true">전체</span>
+        <span class="chip dl" data-dl="soon" aria-pressed="false">마감임박</span>
+        <span class="chip dl" data-dl="rolling" aria-pressed="false">상시·수시</span>
+        <span class="chip dl" data-dl="unknown" aria-pressed="false">미정</span>
+      </div>
+      <span class="ctllabel" style="margin-left:8px;">인적성</span>
+      <div class="chips" id="aptChips">
+        <span class="chip" data-apt="all" aria-pressed="true">전체</span>
+        <span class="chip" data-apt="있음" aria-pressed="false">있음</span>
+        <span class="chip" data-apt="없음" aria-pressed="false">없음</span>
+      </div>
+      <span class="ctllabel" style="margin-left:8px;">전략티어</span>
+      <div class="chips" id="stratChips">
+        <span class="chip" data-strat="all" aria-pressed="true">전체</span>
+        <span class="chip" data-strat="A" aria-pressed="false">🏗 A·건설공무</span>
+        <span class="chip" data-strat="B" aria-pressed="false">🎯 B·전략/PMC</span>
+        <span class="chip" data-strat="C" aria-pressed="false">🌱 C·건설테크</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="list" id="list"></main>
+
+  <footer>
+    <span>JOB RADAR · 신재호 채용 레이더 · 원티드·리멤버·잡코리아·사람인 수집·누적</span>
+    <span id="footMeta">OFFLINE · 지원·메모는 이 브라우저에 저장됩니다 (localStorage)</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ===== EMBEDDED SNAPSHOT (Firebase 미연결/오프라인 폴백) ===== -->
+<script id="jobs-data" type="application/json">
+{
+  "meta": {
+    "last_collected": "2026-06-17"
+  },
+  "jobs": [
+    {
+      "id": "gcem-strategy",
+      "company": "녹십자EM (GCEM)",
+      "title": "경영전략팀장",
+      "level": "팀장급 (과장~차장 직급)",
+      "scale": "GC녹십자 계열 · 바이오 종합건설 · 매출 2,359억(2024) · 380명",
+      "source": "헤드헌터(하이스트컨설팅)",
+      "url": "#",
+      "location": "경기 성남 분당",
+      "exp": "건설업 기획·경영관리 8~15년",
+      "domains": [
+        "경영전략",
+        "경영관리",
+        "건설"
+      ],
+      "fit_score": 85,
+      "fit_tier": "최상",
+      "fit_reasons": [
+        "건설업 기획·경영관리 8~15년 + 경영학 전공 요건에 MBA가 자격요건으로 매핑",
+        "GMP·바이오 시설 종합건설 = 건설 경영관리 100% 정합",
+        "공시대상집단 편입 대비 추정BS·내부거래 규제 수요 = 경영전략팀 미션 직결"
+      ],
+      "is_new": false,
+      "deadline": null,
+      "deadline_type": "unknown",
+      "deadline_label": "탈락(서류)",
+      "deadline_note": "헤드헌터 연락 후 서류전형 탈락 (26.06)",
+      "process": [
+        "서류",
+        "인적성",
+        "1차(실무+임원)",
+        "2차(대표이사)",
+        "처우협의",
+        "신검"
+      ],
+      "process_confirmed": true,
+      "process_note": "헤드헌터 공식 확인",
+      "has_aptitude": "있음",
+      "brief": {
+        "company_status": "GC녹십자그룹 계열, 녹십자홀딩스 100% 자회사. GMP공장·BL3·백신시설. 매출 2,359억(2024). 그룹 자산 5.5조 공시대상기업집단 편입 전망. (출처: DART·헤드헌터)",
+        "verdict": "정체성 100% 매핑 자리였으나 헤드헌터 연락 후 서류전형 탈락(26.06). 관계는 유지 — fit과 결과는 별개임을 보여주는 사례.",
+        "strengths": [
+          "건설 도메인 + 경영전략 + MBA 동시 충족",
+          "웍스메이트 투자유치 40억·지원사업 실적"
+        ],
+        "gaps": [
+          "3개월 단기재직·SAP 변수",
+          "재무통 경영관리본부장 라인의 fit 설득부담"
+        ],
+        "pass_odds": "서류 컷(종료). 재지원 시 건설도메인 정면 서사 보완 필요.",
+        "strategy": "B 정체성 100%. 건설+경영 융합 희소성 전면. SAP는 도구 빠른 습득으로 약점→역량 전환.",
+        "sources": []
+      },
+      "tier": "B"
+    },
+    {
+      "id": "hanil-enc-gongmu",
+      "company": "한일이앤씨",
+      "title": "토목 공무 (본사)",
+      "level": "차장~부장급",
+      "scale": "한일시멘트 계열 · 토목 종합건설",
+      "source": "채용공고",
+      "url": "#",
+      "location": "서울 강서",
+      "exp": "경력 (토목 공무)",
+      "domains": [
+        "공무",
+        "원가",
+        "토목"
+      ],
+      "fit_score": 81,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "토목 본사 공무·견적·원가·정산 = A버전 핵심 정합",
+        "한일시멘트 계열 안정성",
+        "서울 강서 = 수도권 통근권"
+      ],
+      "is_new": false,
+      "deadline": "2026-06-12",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "공고 마감 경과 [요확인]",
+      "process": [
+        "서류",
+        "면접"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "한일시멘트 계열 토목 종합건설사. 상세 재무 [요확인].",
+        "verdict": "A(건설 공무 전면) 정면 타겟. 계열 안정성 양호. 마감 경과 — 재공고 모니터링.",
+        "strengths": [
+          "토목 시공+본사 공무 이력 직결",
+          "견적·실행예산·정산 즉시 투입"
+        ],
+        "gaps": [
+          "MBA·스타트업 경력은 이 포지션에서 과스펙 인식 가능 → 톤다운"
+        ],
+        "pass_odds": "공무 직무 정합 높음.",
+        "strategy": "A버전(공무·원가·분쟁 전면, MBA 최소화).",
+        "sources": []
+      },
+      "tier": "A"
+    },
+    {
+      "id": "lian-strategy-planning",
+      "company": "(주)리앤파트너 (국내 대형건설사)",
+      "title": "전략부문 기획관리 (차·부장급)",
+      "level": "차·부장급",
+      "scale": "국내 대형건설사 (헤드헌팅)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%A6%AC%EC%95%A4%ED%8C%8C%ED%8A%B8%EB%84%88",
+      "location": "서울 서초",
+      "exp": "경력 12년↑",
+      "domains": [
+        "전략기획",
+        "경영관리",
+        "기획"
+      ],
+      "fit_score": 83,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "대형건설사 전략·기획관리 = 1순위(건설사 전략/기획) 정면",
+        "건설 원가·공정 통제 + MBA 전략 + IR 3중 매핑",
+        "경력 12년↑ 요건에 관련경력 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-17",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "오늘마감 — 서둘러 검토",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "헤드헌팅(리앤파트너) 경유",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 국내 대형건설사(헤드헌팅 비공개). 사명·재무 공고 상세 확인 필요.",
+        "verdict": "1순위 정합 최상. 다만 대형사 전략팀은 경쟁 치열·재무/IB 출신 선호 가능.",
+        "strengths": [
+          "건설 도메인 이해한 전략기획 = 차별점",
+          "MBA 전략·IR 경험"
+        ],
+        "gaps": [
+          "대형사 전략은 컨설/IB 배경 선호 가능",
+          "오늘마감 — 시간 압박"
+        ],
+        "pass_odds": "직무 정합 높음. 헤드헌터에 즉시 컨택 권장.",
+        "strategy": "B버전. 건설+전략+IR 3중 강점, 대형사 규모 대응 톤.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%A6%AC%EC%95%A4%ED%8C%8C%ED%8A%B8%EB%84%88"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "highest-const-planning",
+      "company": "(주)하이스트컨설팅그룹 (대기업 건설사)",
+      "title": "경영기획",
+      "level": "차·부장급",
+      "scale": "대기업 건설사 (헤드헌팅) · 제시연봉 1억",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%ED%95%98%EC%9D%B4%EC%8A%A4%ED%8A%B8%EC%BB%A8%EC%84%A4%ED%8C%85%20%EA%B2%BD%EC%98%81%EA%B8%B0%ED%9A%8D",
+      "location": "서울 서초",
+      "exp": "경력 12~20년",
+      "domains": [
+        "경영기획",
+        "전략기획",
+        "건설"
+      ],
+      "fit_score": 83,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "대기업 건설사 경영기획 = 1순위 정합",
+        "하이스트컨설팅 = 본인 진행 헤드헌터(녹십자EM) → 관계 활용 가능",
+        "경력 12~20년 요건 부합, 제시연봉 1억"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-27",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "하이스트컨설팅 경유",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 대기업 건설사(헤드헌팅 비공개). 제시연봉 1억 — 현 처우 대비 상향 가능.",
+        "verdict": "하이스트(기존 채널) 공고 — 추천서 품질·관계 활용 가능. 1순위 정합.",
+        "strengths": [
+          "기존 헤드헌터 관계",
+          "건설+경영기획+MBA 정합",
+          "연봉 상향 여지"
+        ],
+        "gaps": [
+          "대기업 경력 12~20년 상단 요건 — 직급/연차 정합 확인"
+        ],
+        "pass_odds": "관계 채널 강점. 유수경 상무에 직접 문의 권장.",
+        "strategy": "B버전. 녹십자EM 진행 경험 공유하며 적합 포지션 재매칭 요청.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%ED%95%98%EC%9D%B4%EC%8A%A4%ED%8A%B8%EC%BB%A8%EC%84%A4%ED%8C%85%20%EA%B2%BD%EC%98%81%EA%B8%B0%ED%9A%8D"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "careermeta-const-planning",
+      "company": "커리어메타써치 (대기업 건설사)",
+      "title": "[대기업 건설사] 기획 경력직",
+      "level": "차·부장급",
+      "scale": "대기업 건설사 (헤드헌팅)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%BB%A4%EB%A6%AC%EC%96%B4%EB%A9%94%ED%83%80%EC%8D%A8%EC%B9%98%20%EA%B1%B4%EC%84%A4%20%EA%B8%B0%ED%9A%8D",
+      "location": "서울 서초",
+      "exp": "경력 10~20년",
+      "domains": [
+        "경영기획",
+        "사업기획",
+        "전략기획"
+      ],
+      "fit_score": 82,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "대기업 건설사 기획 = 1순위 정합",
+        "건설 도메인 + MBA 기획 강점",
+        "경력 10~20년 요건 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-19",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "마감임박",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "헤드헌팅 경유",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 대기업 건설사(헤드헌팅 비공개).",
+        "verdict": "1순위 정합. 마감 임박 — 빠른 검토 필요.",
+        "strengths": [
+          "건설+기획 정합",
+          "MBA·IR 차별점"
+        ],
+        "gaps": [
+          "대기업 경쟁 치열"
+        ],
+        "pass_odds": "직무 정합 높음.",
+        "strategy": "B버전.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%BB%A4%EB%A6%AC%EC%96%B4%EB%A9%94%ED%83%80%EC%8D%A8%EC%B9%98%20%EA%B1%B4%EC%84%A4%20%EA%B8%B0%ED%9A%8D"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "kd-gongmu-team-lead",
+      "company": "KD건설(주)",
+      "title": "건축사업팀 공무팀 팀장",
+      "level": "팀장급",
+      "scale": "KD그룹 계열 종합건설",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=KD%EA%B1%B4%EC%84%A4%20%EA%B3%B5%EB%AC%B4%ED%8C%80%20%ED%8C%80%EC%9E%A5",
+      "location": "서울 송파",
+      "exp": "경력 10~15년",
+      "domains": [
+        "공무",
+        "사업관리",
+        "건설"
+      ],
+      "fit_score": 81,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "본사 공무팀장 = 2순위 핵심 타겟 직결",
+        "공무·원가·정산 본업 즉시 투입",
+        "경력 10~15년 요건 부합, 서울 송파 통근권"
+      ],
+      "is_new": true,
+      "deadline": "2026-07-15",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] KD그룹 계열 종합건설. 재무 상세 확인 필요.",
+        "verdict": "본사 공무팀장 = A버전 핵심. 팀장 직급 정합 양호.",
+        "strengths": [
+          "본사 공무·견적·실행예산·정산 직결",
+          "현장+본사 양쪽 이해"
+        ],
+        "gaps": [
+          "MBA·스타트업은 톤다운 권장(공무 포지션)"
+        ],
+        "pass_odds": "공무 직무 정합 매우 높음.",
+        "strategy": "A버전(공무·원가·분쟁 전면).",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=KD%EA%B1%B4%EC%84%A4%20%EA%B3%B5%EB%AC%B4%ED%8C%80%20%ED%8C%80%EC%9E%A5"
+          }
+        ]
+      },
+      "tier": "A"
+    },
+    {
+      "id": "csc-planning-director",
+      "company": "(주)씨에스씨종합건설 (CSC Partners)",
+      "title": "대표실 경영기획 총괄 실장",
+      "level": "실장급",
+      "scale": "종합건설",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%94%A8%EC%97%90%EC%8A%A4%EC%94%A8%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EA%B2%BD%EC%98%81%EA%B8%B0%ED%9A%8D",
+      "location": "충북 청주",
+      "exp": "경력 10년↑",
+      "domains": [
+        "경영기획",
+        "전략기획",
+        "경영관리"
+      ],
+      "fit_score": 79,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "종합건설 대표실 경영기획 총괄 = 1순위 정합",
+        "대표 직속 = 전략·기획·관리 폭넓은 역할",
+        "경력 10년↑ 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-07-08",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 종합건설사. 재무 상세 확인 필요.",
+        "verdict": "대표 직속 경영기획 총괄 = 권한·정합 높음. 단 근무지 청주(원거리).",
+        "strengths": [
+          "건설+경영기획+MBA 정합",
+          "대표 직속 = 전권 역할"
+        ],
+        "gaps": [
+          "근무지 청주 — 거주지(시흥) 원거리",
+          "중견 종합건설 안정성 확인 필요"
+        ],
+        "pass_odds": "직무 정합 높음. 지역 통근/이주 판단 필요.",
+        "strategy": "B버전. 대표 직속 전략 파트너 톤.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%94%A8%EC%97%90%EC%8A%A4%EC%94%A8%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EA%B2%BD%EC%98%81%EA%B8%B0%ED%9A%8D"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "lian-strategy-mna",
+      "company": "(주)리앤파트너 (국내 대형건설사)",
+      "title": "전략 M&A 담당 (과·차장급)",
+      "level": "과·차장급",
+      "scale": "국내 대형건설사 (헤드헌팅)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%A6%AC%EC%95%A4%ED%8C%8C%ED%8A%B8%EB%84%88%20M%26A",
+      "location": "서울 서초",
+      "exp": "경력 10년↑",
+      "domains": [
+        "전략기획",
+        "M&A",
+        "신사업기획"
+      ],
+      "fit_score": 78,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "대형건설사 전략·신사업 = 1순위 인접",
+        "IR·투자유치 경험이 M&A 딜 언어와 일부 매핑",
+        "경력 10년↑ 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-19",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "마감임박",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "헤드헌팅 경유",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 국내 대형건설사(헤드헌팅 비공개).",
+        "verdict": "전략·M&A — IR 경험 매핑되나 순수 M&A 딜 경험은 약점. 정합 중상.",
+        "strengths": [
+          "투자유치 40억 IR 경험",
+          "건설 도메인 이해"
+        ],
+        "gaps": [
+          "M&A 딜 실무(밸류에이션·실사 주도) 경험 제한",
+          "오늘 기준 마감 임박"
+        ],
+        "pass_odds": "중상. IR 경험을 딜 언어로 번역 필요.",
+        "strategy": "B버전. 투자유치·텀싯 경험을 M&A 인접 역량으로 프레이밍.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%A6%AC%EC%95%A4%ED%8C%8C%ED%8A%B8%EB%84%88%20M%26A"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "seyoung-strategy-head",
+      "company": "세영건설(주)",
+      "title": "미래전략실 3팀 본부장",
+      "level": "본부장급",
+      "scale": "중견 건설 · 평균연봉 6,000↑",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%84%B8%EC%98%81%EA%B1%B4%EC%84%A4%20%EB%AF%B8%EB%9E%98%EC%A0%84%EB%9E%B5%EC%8B%A4",
+      "location": "서울 강남",
+      "exp": "경력 15년↑",
+      "domains": [
+        "전략기획",
+        "사업기획",
+        "건설"
+      ],
+      "fit_score": 78,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "건설 미래전략실 본부장 = 1순위 정합",
+        "전략·사업기획 + MBA 매핑",
+        "경력 15년↑ 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-07-15",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "계약직",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "고용형태 계약직",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 세영건설(주). 평균연봉 6,000↑ 표기.",
+        "verdict": "건설 전략실 본부장 = 직급·정합 높음. 단 계약직 고용형태.",
+        "strengths": [
+          "건설+전략+MBA",
+          "본부장 직급 정합"
+        ],
+        "gaps": [
+          "계약직 — 안정성/처우 조건 확인",
+          "본부장 요구 리더십 규모 확인"
+        ],
+        "pass_odds": "직무 정합 높음.",
+        "strategy": "B버전. 본부 운영·손익 관점 강조.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%84%B8%EC%98%81%EA%B1%B4%EC%84%A4%20%EB%AF%B8%EB%9E%98%EC%A0%84%EB%9E%B5%EC%8B%A4"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "sfinchon-fpna-lead",
+      "company": "에스에프인촌(주)",
+      "title": "경영관리(FP&A)팀장",
+      "level": "팀장급",
+      "scale": "부동산 우량중견기업",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%97%90%EC%8A%A4%EC%97%90%ED%94%84%EC%9D%B8%EC%B4%8C",
+      "location": "서울 서초",
+      "exp": "경력 13~18년",
+      "domains": [
+        "경영관리",
+        "예산관리",
+        "사업관리"
+      ],
+      "fit_score": 77,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "부동산 중견 경영관리(FP&A) = 1순위 인접",
+        "원가·정산·예산 통제 경험 매핑",
+        "경력 13~18년 = 본인 연차 부합"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-19",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "마감임박",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 부동산 우량중견기업.",
+        "verdict": "FP&A팀장 — 원가/예산 통제 강점 매핑. 단 재무통 선호 시 fit 설득부담(녹십자EM 교훈).",
+        "strengths": [
+          "건설 원가·실행예산·정산 통제 경험",
+          "MBA 재무·전략"
+        ],
+        "gaps": [
+          "FP&A는 회계·재무 정통 선호 가능",
+          "마감 임박"
+        ],
+        "pass_odds": "중상. 건설 원가관리를 FP&A 언어로 번역 필요.",
+        "strategy": "B버전. 실행예산·기성 대 투입 관리를 FP&A 역량으로 프레이밍.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%97%90%EC%8A%A4%EC%97%90%ED%94%84%EC%9D%B8%EC%B4%8C"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "dain-planning-office",
+      "company": "(주)다인씨엠건축사사무소 (다인건축그룹)",
+      "title": "기획실 (경력)",
+      "level": "경력",
+      "scale": "건축그룹 (CM·건축사사무소)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%8B%A4%EC%9D%B8%EC%94%A8%EC%97%A0%EA%B1%B4%EC%B6%95%EC%82%AC%EC%82%AC%EB%AC%B4%EC%86%8C%20%EA%B8%B0%ED%9A%8D%EC%8B%A4",
+      "location": "서울 서초",
+      "exp": "경력무관",
+      "domains": [
+        "경영기획",
+        "사업기획",
+        "전략기획"
+      ],
+      "fit_score": 75,
+      "fit_tier": "상",
+      "fit_reasons": [
+        "건축그룹 기획실 = 1순위 인접",
+        "건설+기획+MBA 정합",
+        "CM·건축 도메인 이해"
+      ],
+      "is_new": true,
+      "deadline": null,
+      "deadline_type": "rolling",
+      "deadline_label": "상시·수시",
+      "deadline_note": "채용시 마감",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 다인건축그룹(CM·건축사사무소).",
+        "verdict": "건축그룹 기획실 — 직무 정합. 직급·처우 확인 필요.",
+        "strengths": [
+          "건설·CM 도메인",
+          "기획·전략·MBA"
+        ],
+        "gaps": [
+          "직급/처우 미상(경력무관 공고)"
+        ],
+        "pass_odds": "중상.",
+        "strategy": "B버전.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%8B%A4%EC%9D%B8%EC%94%A8%EC%97%A0%EA%B1%B4%EC%B6%95%EC%82%AC%EC%82%AC%EB%AC%B4%EC%86%8C%20%EA%B8%B0%ED%9A%8D%EC%8B%A4"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "p2p-1gun-dev-pm",
+      "company": "피플투피플 (1군건설 부동산개발)",
+      "title": "부동산개발 공모사업 수주·사업관리",
+      "level": "과·차·부장급",
+      "scale": "1군 건설사 (헤드헌팅)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%ED%94%BC%ED%94%8C%ED%88%AC%ED%94%BC%ED%94%8C%201%EA%B5%B0%EA%B1%B4%EC%84%A4%20%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C",
+      "location": "서울 종로",
+      "exp": "경력 4~12년",
+      "domains": [
+        "사업관리",
+        "도시개발",
+        "부동산"
+      ],
+      "fit_score": 74,
+      "fit_tier": "중",
+      "fit_reasons": [
+        "1군건설 부동산개발 사업관리 = 3순위(디벨로퍼/PMC) 정합",
+        "공모사업 수주 = 제안·기획 경험 매핑",
+        "건설+사업관리 강점"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-30",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "헤드헌팅 경유",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 1군 건설사(헤드헌팅 비공개).",
+        "verdict": "부동산개발 사업관리·공모 수주 — 건설+기획 매핑. 도시개발 전문성 일부 요구.",
+        "strengths": [
+          "사업관리·수주 제안 경험",
+          "건설 도메인"
+        ],
+        "gaps": [
+          "순수 부동산개발/도시개발 전문성 확인"
+        ],
+        "pass_odds": "중상.",
+        "strategy": "B버전. 공모·제안·사업관리 경험 전면.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%ED%94%BC%ED%94%8C%ED%88%AC%ED%94%BC%ED%94%8C%201%EA%B5%B0%EA%B1%B4%EC%84%A4%20%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C"
+          }
+        ]
+      },
+      "tier": "B"
+    },
+    {
+      "id": "suyang-housing-dev",
+      "company": "수양종합건설(주)",
+      "title": "APT 시행 개발(주택)사업부",
+      "level": "경력",
+      "scale": "종합건설 (APT 시행)",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%88%98%EC%96%91%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EB%B6%80",
+      "location": "서울 구로",
+      "exp": "경력 5년↑",
+      "domains": [
+        "사업관리",
+        "CM",
+        "부동산"
+      ],
+      "fit_score": 72,
+      "fit_tier": "중",
+      "fit_reasons": [
+        "APT 시행 개발 = 3순위(디벨로퍼) 정합",
+        "건설 사업관리·CM 매핑",
+        "서울 구로 = 거주지(시흥) 통근 우수"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-22",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 수양종합건설(주).",
+        "verdict": "APT 시행 개발 — 지역(구로) 통근 강점. 시행/주택개발 전문성 일부 요구.",
+        "strengths": [
+          "건설 사업관리·CM",
+          "통근 우수(서울 남서부)"
+        ],
+        "gaps": [
+          "주택 시행/분양 전문성 확인"
+        ],
+        "pass_odds": "중.",
+        "strategy": "B/C버전. 건설 도메인 + 사업관리 전면.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EC%88%98%EC%96%91%EC%A2%85%ED%95%A9%EA%B1%B4%EC%84%A4%20%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EB%B6%80"
+          }
+        ]
+      },
+      "tier": "C"
+    },
+    {
+      "id": "dblock-dev-planning",
+      "company": "에이치케이에스인베스트먼트(주) (디블록그룹·구 한호건설그룹)",
+      "title": "개발기획 (오피스·상업시설)",
+      "level": "경력",
+      "scale": "부동산개발 그룹",
+      "source": "사람인",
+      "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%94%94%EB%B8%94%EB%A1%9D%EA%B7%B8%EB%A3%B9%20%EA%B0%9C%EB%B0%9C%EA%B8%B0%ED%9A%8D",
+      "location": "서울 강남",
+      "exp": "경력 5년↑",
+      "domains": [
+        "사업기획",
+        "부동산",
+        "개발"
+      ],
+      "fit_score": 73,
+      "fit_tier": "중",
+      "fit_reasons": [
+        "부동산개발 그룹 개발기획 = 3순위 정합",
+        "건설+기획+IR(투자) 매핑",
+        "오피스·상업시설 개발 기획"
+      ],
+      "is_new": true,
+      "deadline": "2026-06-30",
+      "deadline_type": "date",
+      "deadline_label": "",
+      "deadline_note": "개발기획/공사관리/법무/회계 동시채용",
+      "process": [
+        "서류",
+        "1차 면접",
+        "2차 면접",
+        "처우협의"
+      ],
+      "process_confirmed": false,
+      "process_note": "",
+      "has_aptitude": "미확인",
+      "brief": {
+        "company_status": "[요확인] 디블록그룹(구 한호건설그룹), 시행 운용사 HKS인베스트먼트.",
+        "verdict": "개발기획 — 건설+금융·기획 매핑. 디벨로퍼 사업기획 적합.",
+        "strengths": [
+          "건설 도메인 + 사업기획 + IR",
+          "개발 다직군 동시채용 = 매칭 여지"
+        ],
+        "gaps": [
+          "부동산 개발 PF·금융구조 전문성 확인"
+        ],
+        "pass_odds": "중상.",
+        "strategy": "B버전. 건설+IR(투자유치) 융합 강점.",
+        "sources": [
+          {
+            "title": "사람인 검색",
+            "url": "https://www.saramin.co.kr/zf_user/search?searchword=%EB%94%94%EB%B8%94%EB%A1%9D%EA%B7%B8%EB%A3%B9%20%EA%B0%9C%EB%B0%9C%EA%B8%B0%ED%9A%8D"
+          }
+        ]
+      },
+      "tier": "B"
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var LS_KEY = "jobradar_tracking_v1";
+
+  var state = {
+    jobs: [], lastCollected: "—", source: "snapshot",
+    tier:"all", q:"", newOnly:false, hideApplied:false, sort:"fit", dl:"all", apt:"all", payOnly:false, strat:"all",
+    tracking: loadLocalTracking(), admin:false, db:null
+  };
+
+  try{
+    var snap = JSON.parse(document.getElementById("jobs-data").textContent.trim());
+    state.jobs = (snap.jobs||[]).slice();
+    state.lastCollected = (snap.meta && snap.meta.last_collected) || "—";
+  }catch(e){ console.error("snapshot parse fail", e); }
+
+  // helpers
+  function tierOf(s){ return s>=85?"최상":s>=75?"상":s>=65?"중":"하"; }
+  function tierClass(t){ return t==="최상"?"tier-top":t==="상"?"tier-high":t==="중"?"tier-mid":"tier-low"; }
+  function loadLocalTracking(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)||"{}"); }catch(e){ return {}; } }
+  function saveLocalTracking(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state.tracking)); }catch(e){} }
+  function trackOf(id){ return state.tracking[id] || {applied:false, applied_at:null, notes:""}; }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function toast(m){ var t=document.getElementById("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove("show");},1900); }
+  function todayStr(){ return new Date().toISOString().slice(0,10); }
+  function daysUntil(d){ if(!d) return null; return Math.round((new Date(d)-new Date(todayStr()))/86400000); }
+
+  // deadline bucketing
+  var BUCKET_ORDER = ["임박(D-7)","2주 이내","이번 달","이후 마감","상시·수시","마감일 미정","마감"];
+  function bucketOf(j){
+    if(j.deadline && j.deadline_type==="date"){
+      var dd=daysUntil(j.deadline);
+      if(dd<0) return "마감";
+      if(dd<=7) return "임박(D-7)";
+      if(dd<=14) return "2주 이내";
+      var x=new Date(j.deadline), t=new Date(todayStr());
+      if(x.getFullYear()===t.getFullYear() && x.getMonth()===t.getMonth()) return "이번 달";
+      return "이후 마감";
+    }
+    if(j.deadline_type==="rolling") return "상시·수시";
+    return "마감일 미정";
+  }
+  function ddayChip(j){
+    if(j.deadline && j.deadline_type==="date"){
+      var dd=daysUntil(j.deadline);
+      if(dd<0) return '<span class="dday expired">마감</span>';
+      var cls=dd<=7?"soon":dd<=14?"month":"rolling";
+      return '<span class="dday '+cls+'">D-'+dd+' · '+esc(j.deadline.slice(5).replace("-","/"))+' 마감</span>';
+    }
+    if(j.deadline_type==="rolling") return '<span class="dday rolling">'+esc(j.deadline_label||"상시·수시")+'</span>';
+    return '<span class="dday expired">'+esc(j.deadline_label||"마감일 미정")+'</span>';
+  }
+  function aptBadge(j){
+    var a=j.has_aptitude||"미확인";
+    var cls=a==="있음"?"apt-yes":a==="없음"?"apt-no":"apt-unknown";
+    return '<span class="apt '+cls+'">인적성 '+esc(a)+'</span>';
+  }
+  var STRAT_W={"A":"건설사 본사 공무·원가·정산·감사 — 공무 전면, MBA 최소화","B":"디벨로퍼·PMC·전략기획 — 건설+MBA+IR 3중 강점 동시 제시","C":"스타트업·건설테크·경영전략 — 스타트업 IR·투자유치 전면"};
+  var STRAT_LBL={"A":"A 건설공무","B":"B 전략/PMC","C":"C 건설테크"};
+  function stratOf(j){ return j.tier || "B"; }
+  function stratBadge(j){ var t=stratOf(j); return '<span class="strat-badge strat-'+t+'">'+esc(STRAT_LBL[t]||t)+'</span>'; }
+  function weaponLine(j){ var t=stratOf(j); return '<div class="weaponline">🎯 <b>'+esc(STRAT_LBL[t]||t)+'</b> 티어 · 무기: '+esc(STRAT_W[t]||"")+'</div>'; }
+  var METRO_RE=/인천|경기|서울|수도권|시흥|안산|화성|수원|부천|광명|김포|성남|용인|고양|구로|영등포|금천|강서/;
+  function isPayment(j){ return METRO_RE.test(j.location||""); }
+  function briefHTML(j){
+    var b=j.brief;
+    if(!b || (typeof b==="object" && !b.company_status && !b.verdict && !(b.strengths&&b.strengths.length))){
+      return '<div class="brief-empty">📋 상세 분석 준비 중 — Claude에게 “'+esc(j.company)+' 분석해줘”라고 하면 회사 상태·적합성·통과 확률·전략이 채워져요.</div>';
+    }
+    function sec(label, inner){ return inner?'<div class="bsec"><div class="blabel">'+label+'</div>'+inner+'</div>':''; }
+    var st=(b.strengths||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join("");
+    var gp=(b.gaps||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join("");
+    var src=(b.sources||[]).map(function(s){return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+' ↗</a>';}).join(" · ");
+    return (b.verdict?'<div class="bverdict">'+esc(b.verdict)+'</div>':'')
+      + sec("회사 상태", b.company_status?'<p>'+esc(b.company_status)+'</p>':'')
+      + sec("강점 매칭", st?'<ul class="bplus">'+st+'</ul>':'')
+      + sec("약점·경쟁", gp?'<ul class="bminus">'+gp+'</ul>':'')
+      + sec("서류 통과 확률", b.pass_odds?'<p>'+esc(b.pass_odds)+'</p>':'')
+      + sec("전략", b.strategy?'<p>'+esc(b.strategy)+'</p>':'')
+      + (src?'<div class="bsrc">출처 · '+src+'</div>':'');
+  }
+  function processBlock(j){
+    var inner;
+    if(j.process && j.process.length){
+      inner = j.process.map(function(s){return '<span class="step">'+esc(s)+'</span>';}).join('<span class="arrow">›</span>');
+      if(!j.process_confirmed) inner += ' <span class="pnote">(추정)</span>';
+    } else { inner = '<span class="pnote">전형 정보 미확인 — 공고 확인</span>'; }
+    var note = j.process_note ? ' <span class="pnote">· '+esc(j.process_note)+'</span>' : '';
+    return '<div class="process"><span class="plabel">전형</span>'+inner+' '+aptBadge(j)+note+'</div>';
+  }
+
+  // filtering
+  function computeFiltered(){
+    var arr = state.jobs.slice();
+    arr.forEach(function(j){ j._tier = j.fit_tier || tierOf(j.fit_score); });
+    if(state.tier!=="all") arr = arr.filter(function(j){ return j._tier===state.tier; });
+    if(state.newOnly) arr = arr.filter(function(j){ return j.is_new; });
+    if(state.hideApplied) arr = arr.filter(function(j){ return !trackOf(j.id).applied; });
+    if(state.apt!=="all") arr = arr.filter(function(j){ return (j.has_aptitude||"미확인")===state.apt; });
+    if(state.payOnly) arr = arr.filter(isPayment);
+    if(state.strat!=="all") arr = arr.filter(function(j){ return stratOf(j)===state.strat; });
+    if(state.dl!=="all"){
+      arr = arr.filter(function(j){
+        if(state.dl==="soon") return j.deadline_type==="date" && daysUntil(j.deadline)!=null && daysUntil(j.deadline)>=0 && daysUntil(j.deadline)<=14;
+        if(state.dl==="rolling") return j.deadline_type==="rolling";
+        if(state.dl==="unknown") return j.deadline_type!=="date" && j.deadline_type!=="rolling";
+        return true;
+      });
+    }
+    if(state.q){
+      var q = state.q.toLowerCase();
+      arr = arr.filter(function(j){
+        var hay = (j.company+" "+j.title+" "+(j.level||"")+" "+(j.scale||"")+" "+(j.domains||[]).join(" ")+" "+(j.location||"")+" "+(j.source||"")+" "+(j.process||[]).join(" ")+" "+(j.deadline_label||"")+" "+(j.has_aptitude||"")).toLowerCase();
+        return hay.indexOf(q)>=0;
+      });
+    }
+    return arr;
+  }
+  function sortFlat(arr){
+    arr.sort(function(a,b){
+      if(state.sort==="company") return a.company.localeCompare(b.company,"ko");
+      if(state.sort==="new") return (b.is_new?1:0)-(a.is_new?1:0) || b.fit_score-a.fit_score;
+      return b.fit_score-a.fit_score;
+    });
+    return arr;
+  }
+
+  function entryHTML(j, rank){
+    var t = trackOf(j.id), tier=j._tier||tierOf(j.fit_score);
+    var tags = (isPayment(j)?'<span class="tag pay">📍 수도권</span>':"")
+             + (j.domains||[]).map(function(d){return '<span class="tag dom">'+esc(d)+'</span>';}).join("")
+             + (j.scale?'<span class="tag">'+esc(j.scale)+'</span>':"")
+             + (j.exp?'<span class="tag">경력 '+esc(j.exp)+'</span>':"");
+    var reasons = (j.fit_reasons||[]).map(function(r){return '<li>'+esc(r)+'</li>';}).join("");
+    return ''+
+    '<article class="entry'+(t.applied?' applied':'')+'" data-id="'+esc(j.id)+'">'+
+      '<div class="rank">'+rank+'</div>'+
+      '<div class="entry-main">'+
+        '<h2><span class="co">'+esc(j.company)+'</span> · <span class="ttl">'+esc(j.title)+'</span>'+(j.is_new?'<span class="newtag">NEW</span>':'')+stratBadge(j)+'</h2>'+
+        '<div class="meta-line">'+ddayChip(j)+'<span class="sep">·</span><span>'+esc(j.level||"")+'</span><span class="sep">·</span><span>'+esc(j.location||"")+'</span><span class="sep">·</span><span>'+esc(j.source||"")+'</span></div>'+
+        weaponLine(j)+
+        '<div class="tags">'+tags+'</div>'+
+        processBlock(j)+
+        '<ul class="reasons">'+reasons+'</ul>'+
+        '<div class="actions">'+
+          '<a class="viewlink" href="'+esc(j.url)+'" target="_blank" rel="noopener">공고 보기 ↗</a>'+
+          '<button class="brief-btn" data-act="brief">정보 보기 ▾</button>'+
+          '<label class="applybox"><input type="checkbox" data-act="apply" '+(t.applied?'checked':'')+'/> 지원함</label>'+
+          '<input class="noteinput" data-act="note" placeholder="메모 추가…" value="'+esc(t.notes||"")+'"/>'+
+        '</div>'+
+        '<div class="brief-panel">'+briefHTML(j)+'</div>'+
+      '</div>'+
+      '<div class="score">'+
+        '<div class="val">'+j.fit_score+'</div>'+
+        '<div class="tier '+tierClass(tier)+'">'+tier+'</div>'+
+        '<div class="bar"><i style="width:'+j.fit_score+'%"></i></div>'+
+      '</div>'+
+    '</article>';
+  }
+
+  function renderStats(){
+    var j = state.jobs;
+    var top = j.filter(function(x){return (x.fit_tier||tierOf(x.fit_score))==="최상";}).length;
+    var high= j.filter(function(x){return (x.fit_tier||tierOf(x.fit_score))==="상";}).length;
+    var nu  = j.filter(function(x){return x.is_new;}).length;
+    var ap  = j.filter(function(x){return trackOf(x.id).applied;}).length;
+    var cells=[["누적 공고",j.length,""],["최상 핏",top,"tTop"],["상위 핏",high,"tHigh"],["오늘 신규",nu,"tNew"],["지원 완료",ap,""]];
+    document.getElementById("stats").innerHTML = cells.map(function(c){
+      return '<div class="stat '+c[2]+'"><div class="n">'+c[1]+'</div><div class="l">'+c[0]+'</div></div>';
+    }).join("");
+  }
+
+  function renderList(){
+    var arr = computeFiltered();
+    var el = document.getElementById("list");
+    if(!arr.length){ el.innerHTML='<div class="empty">조건에 맞는 공고가 없습니다.</div>'; return; }
+
+    if(state.sort==="deadline"){
+      // group by deadline bucket
+      arr.sort(function(a,b){
+        var ia=BUCKET_ORDER.indexOf(bucketOf(a)), ib=BUCKET_ORDER.indexOf(bucketOf(b));
+        if(ia!==ib) return ia-ib;
+        var da=daysUntil(a.deadline), db=daysUntil(b.deadline);
+        if(a.deadline_type==="date" && b.deadline_type==="date" && da!=null && db!=null && da!==db) return da-db;
+        return b.fit_score-a.fit_score;
+      });
+      var counts={}; arr.forEach(function(j){ var b=bucketOf(j); counts[b]=(counts[b]||0)+1; });
+      var html="", lastB=null, rank=0;
+      arr.forEach(function(j){
+        var b=bucketOf(j);
+        if(b!==lastB){
+          var urgent=(b==="임박(D-7)"||b==="2주 이내")?" urgent":"";
+          html += '<div class="group-head'+urgent+'"><span>'+b+'</span><span class="gcount">'+counts[b]+'건</span></div>';
+          lastB=b;
+        }
+        rank++; html += entryHTML(j, rank);
+      });
+      el.innerHTML = html;
+    } else {
+      sortFlat(arr);
+      el.innerHTML = arr.map(function(j,i){ return entryHTML(j, i+1); }).join("");
+    }
+  }
+
+  function renderAll(){ renderStats(); renderList(); document.getElementById("lastCollected").textContent = state.lastCollected; }
+
+  function setTrack(id, patch){
+    var cur = trackOf(id);
+    var next = Object.assign({}, cur, patch);
+    state.tracking[id] = next;
+    saveLocalTracking();
+    if(state.admin && state.db){ state.db.collection("jobradar_tracking").doc(id).set(next, {merge:true}).catch(function(e){ console.warn("track write fail",e); }); }
+  }
+
+  // events
+  document.getElementById("searchInput").addEventListener("input", function(e){ state.q=e.target.value; renderList(); });
+  function wireChips(wrapId, key){
+    document.getElementById(wrapId).addEventListener("click", function(e){
+      var c=e.target.closest(".chip"); if(!c) return;
+      state[key]=c.getAttribute("data-"+(key==="tier"?"tier":key==="dl"?"dl":"apt"));
+      [].forEach.call(this.querySelectorAll(".chip"), function(x){ x.setAttribute("aria-pressed", x===c?"true":"false"); });
+      renderList();
+    });
+  }
+  wireChips("tierChips","tier"); wireChips("dlChips","dl"); wireChips("aptChips","apt");
+  document.getElementById("newOnly").addEventListener("click", function(){ state.newOnly=!state.newOnly; this.setAttribute("aria-pressed",state.newOnly); renderList(); });
+  document.getElementById("hideApplied").addEventListener("click", function(){ state.hideApplied=!state.hideApplied; this.setAttribute("aria-pressed",state.hideApplied); renderList(); });
+  document.getElementById("payOnly").addEventListener("click", function(){ state.payOnly=!state.payOnly; this.setAttribute("aria-pressed",state.payOnly); renderList(); });
+  document.getElementById("stratChips").addEventListener("click", function(e){ var c=e.target.closest(".chip"); if(!c) return; state.strat=c.getAttribute("data-strat"); [].forEach.call(this.querySelectorAll(".chip"), function(x){ x.setAttribute("aria-pressed", x===c?"true":"false"); }); renderList(); });
+  document.getElementById("sortSel").addEventListener("change", function(e){ state.sort=e.target.value; renderList(); });
+
+  document.getElementById("list").addEventListener("change", function(e){
+    var entry=e.target.closest(".entry"); if(!entry) return; var id=entry.getAttribute("data-id");
+    var act=e.target.getAttribute("data-act");
+    if(act==="apply"){
+      var on=e.target.checked;
+      setTrack(id, {applied:on, applied_at: on? todayStr() : null});
+      entry.classList.toggle("applied", on); renderStats();
+      toast(on?"지원 표시 저장됨":"지원 표시 해제");
+    } else if(act==="note"){
+      setTrack(id, {notes:e.target.value});
+    }
+  });
+  document.getElementById("list").addEventListener("click", function(e){
+    var btn=e.target.closest(".brief-btn"); if(!btn) return;
+    var entry=btn.closest(".entry"); if(!entry) return;
+    var panel=entry.querySelector(".brief-panel"); if(!panel) return;
+    var open=panel.classList.toggle("open");
+    btn.textContent = open ? "닫기 ▴" : "정보 보기 ▾";
+  });
+
+  // 오프라인 전용 — 상태 표시
+  function setStatus(kind){
+    var pill=document.getElementById("statusPill"), txt=document.getElementById("statusText");
+    pill.classList.remove("live","snap"); pill.classList.add("snap"); txt.textContent="로컬";
+  }
+
+  setStatus("snap");
+  renderAll();
+})();
+</script>
+</body>
+</html>
