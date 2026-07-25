@@ -185,6 +185,26 @@
   .apps-st.gold{background:#f1e9d4;color:#9a7b2e;} .apps-st.red{background:#eeebe5;color:#b6432e;}
   .apps-dt{font-size:11.5px;color:#8a857c;text-align:right;}
   @media(max-width:680px){.apps-row{grid-template-columns:1fr 1fr;}.apps-site,.apps-dt{display:none;}}
+
+  .watchlist{margin:18px 0 6px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:14px 16px;}
+  .watchlist-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-weight:700;font-size:14px;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:8px;cursor:pointer;}
+  .watchlist-head .wl-c{font-size:11.5px;color:#8a857c;font-weight:600;}
+  .watchlist-sub{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+  .wl-table{display:none;max-height:520px;overflow-y:auto;}
+  .wl-table.open{display:block;}
+  .wl-row{display:grid;grid-template-columns:.35fr 1.6fr .8fr .8fr 1.5fr .9fr;gap:10px;align-items:center;padding:6px 2px;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .wl-row:last-child{border-bottom:0;}
+  .wl-row.head{font-weight:700;color:var(--ink-soft);font-size:11px;font-family:var(--sans);border-bottom:1.5px solid var(--ink);position:sticky;top:0;background:var(--card);}
+  .wl-co{font-weight:700;}
+  .wl-dist{color:var(--ink-soft);}
+  .wl-cap{color:var(--ink-soft);}
+  .wl-dom{color:#2c6354;font-size:11.5px;}
+  .wl-status{font-weight:700;font-size:10.5px;padding:2px 7px;border-radius:5px;text-align:center;}
+  .wl-status.none{background:#eeebe5;color:#8a857c;}
+  .wl-status.siteonly{background:#f1e9d4;color:#9a7b2e;}
+  .wl-status.todo{background:#e4efe9;color:#1f6f5c;}
+  .wl-status.tracked{background:#e7eef5;color:#1f4e79;}
+  @media(max-width:680px){.wl-row{grid-template-columns:.3fr 1fr .8fr;}.wl-cap,.wl-dom{display:none;}}
 </style>
 </head>
 <body>
@@ -205,6 +225,8 @@
   <section class="stats" id="stats"></section>
 
   <section class="apps" id="apps"></section>
+
+  <section class="watchlist" id="watchlist"></section>
 
   <section class="controls">
     <div class="ctlrow">
@@ -268,7 +290,8 @@
     "last_collected": "2026-07-25 11:33",
     "commute_basis": "시흥능곡역(서해선) 기준 통근 4단계 (26.07.25 델타 2배 확대: T1+6/T2+4/T3 0/T4-6)",
     "filter_policy": "경력요건 하한 3년 이하(주니어) 제외 · 명시 연봉 6,000만 미만 제외 (26.07.22 개정)",
-    "url_policy": "공고보기 링크 = 확인된 원본 공고 직링크 우선(브라우저 상세확인 시 rec_idx/GI_Read 저장). 직링크 미확보 건은 기업명 검색페이지로 임시 대체(url_verified=false)."
+    "url_policy": "공고보기 링크 = 확인된 원본 공고 직링크 우선(브라우저 상세확인 시 rec_idx/GI_Read 저장). 직링크 미확보 건은 기업명 검색페이지로 임시 대체(url_verified=false).",
+    "watchlist_basis": "KOSCA 시공능력평가 500~2,000억 + 지반조성/철근콘크리트 등 면허보유 + 시흥 자택 기준 도로거리 TOP100 (26.07.25 조사)"
   },
   "jobs": [
     {
@@ -5781,6 +5804,1421 @@
       "date": "2026-05-10",
       "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
     }
+  ],
+  "watchlist": [
+    {
+      "rank": 1,
+      "company": "다힘건설(주)",
+      "distance_km": 1.26,
+      "time_min": 2.2,
+      "capability_eok": 703.6,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 시흥시 노루우물길 4,",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "사람인·잡코리아 채용공고 없음(26.07.25)"
+    },
+    {
+      "rank": 2,
+      "company": "(유)성우이앤씨",
+      "distance_km": 11.05,
+      "time_min": 11.7,
+      "capability_eok": 1125.0,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "경기도 안산시 단원구 광덕2로 186-5,",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "전기설계·CAD 신입/경력만, 본사공무 무관(26.07.25)"
+    },
+    {
+      "rank": 3,
+      "company": "(주)대륭개발",
+      "distance_km": 13.23,
+      "time_min": 16.1,
+      "capability_eok": 1401.3,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 광명시 일직로 43 (일직동)",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "골조현장·안전관리자만(26.07.25)"
+    },
+    {
+      "rank": 4,
+      "company": "(주)서현개발",
+      "distance_km": 13.23,
+      "time_min": 16.1,
+      "capability_eok": 998.8,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 광명시 일직로 43,",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "관련 공고 없음(26.07.25)"
+    },
+    {
+      "rank": 5,
+      "company": "(주)진도토건",
+      "distance_km": 13.23,
+      "time_min": 16.1,
+      "capability_eok": 1028.6,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 광명시 일직로 43,",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "사람인·잡코리아 채용공고 없음(26.07.25)"
+    },
+    {
+      "rank": 6,
+      "company": "(주)삼현건설엔",
+      "distance_km": 14.84,
+      "time_min": 16.3,
+      "capability_eok": 632.6,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 구로구 부광로 96-16, 상가동 201호",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "관련 공고 없음(26.07.25)"
+    },
+    {
+      "rank": 7,
+      "company": "반석건설(주)",
+      "distance_km": 14.87,
+      "time_min": 16.4,
+      "capability_eok": 743.1,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "인천광역시 남동구 인하로 568 (구월동)",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "현장 공무·공사 담당자(현장상주)만(26.07.25)"
+    },
+    {
+      "rank": 8,
+      "company": "(주)이룸건설",
+      "distance_km": 18.33,
+      "time_min": 20.2,
+      "capability_eok": 532.6,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 연수구 옥련동 468-13",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "동명 타사(충남 서천) 공고만 확인, 인천 연수구 본사는 무공고(26.07.25)"
+    },
+    {
+      "rank": 9,
+      "company": "(주)혜림건설",
+      "distance_km": 18.5,
+      "time_min": 19.6,
+      "capability_eok": 552.1,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 부천시 길주로 262,",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "관련 공고 없음(26.07.25)"
+    },
+    {
+      "rank": 10,
+      "company": "(주)태일씨앤티",
+      "distance_km": 19.6,
+      "time_min": 20.3,
+      "capability_eok": 978.8,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 금천구 가산디지털2로 101, 비동 1701호",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "판교현장 공사관리자만(26.07.25)"
+    },
+    {
+      "rank": 11,
+      "company": "대아이앤씨(주)",
+      "distance_km": 19.99,
+      "time_min": 21.1,
+      "capability_eok": 852.2,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트",
+        "구조물해체·비계",
+        "상·하수도설비",
+        "철강구조물"
+      ],
+      "address": "서울특별시 금천구 서부샛길 606, 비동 30층",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "포항·천안아산 등 전국 현장배치 공고만(26.07.25)"
+    },
+    {
+      "rank": 12,
+      "company": "삼원중공업(주)",
+      "distance_km": 20.01,
+      "time_min": 21.1,
+      "capability_eok": 1557.0,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 금천구 가산디지털2로 144, 2001호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 13,
+      "company": "케이에이치건설(주)",
+      "distance_km": 20.02,
+      "time_min": 20.9,
+      "capability_eok": 1539.9,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 금천구 가산디지털1로 165, 1401호 1402호",
+      "status": "job-radar 등록됨",
+      "checked_at": "2026-07-25",
+      "note": "이미 job-radar 공고 DB에 등록된 회사(26.07.25 기준)"
+    },
+    {
+      "rank": 14,
+      "company": "(주)퍼스트초이스",
+      "distance_km": 20.03,
+      "time_min": 21.7,
+      "capability_eok": 512.9,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 안양시 동안구 학의로 282,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 15,
+      "company": "한국콘크리트산업(주)",
+      "distance_km": 20.03,
+      "time_min": 21.7,
+      "capability_eok": 642.0,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 안양시 동안구 벌말로 126,",
+      "status": "job-radar 등록됨",
+      "checked_at": "2026-07-25",
+      "note": "이미 job-radar 공고 DB에 등록된 회사(26.07.25 기준)"
+    },
+    {
+      "rank": 16,
+      "company": "서용이엔씨(주)",
+      "distance_km": 20.23,
+      "time_min": 20.9,
+      "capability_eok": 810.0,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 연수구 인천타워대로 393 (송도동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 17,
+      "company": "(주)우설건설",
+      "distance_km": 21.0,
+      "time_min": 22.2,
+      "capability_eok": 1225.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 구로구 디지털로26길 61, 에이스하이엔드타워2차 205-1, 205-2호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 18,
+      "company": "(주)유진건철",
+      "distance_km": 21.05,
+      "time_min": 22.1,
+      "capability_eok": 1300.3,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 구로구 디지털로27길 24, 804호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 19,
+      "company": "(주)우창이엔씨",
+      "distance_km": 21.25,
+      "time_min": 22.5,
+      "capability_eok": 558.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 연수구 인천타워대로 323 (송도동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 20,
+      "company": "(주)해성기공",
+      "distance_km": 21.39,
+      "time_min": 22.5,
+      "capability_eok": 1786.0,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 구로구 디지털로33길 27, 1101호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 21,
+      "company": "(주)대양건설",
+      "distance_km": 21.97,
+      "time_min": 23.9,
+      "capability_eok": 513.1,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 안양시 동안구 시민대로 387,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 22,
+      "company": "대양건설(주)",
+      "distance_km": 22.3,
+      "time_min": 24.1,
+      "capability_eok": 800.7,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "경기도 화성시 비봉면 양노로 78,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 23,
+      "company": "(주)한울산업",
+      "distance_km": 22.36,
+      "time_min": 22.9,
+      "capability_eok": 595.3,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 부평구 부평대로 301,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 24,
+      "company": "(주)복락이엔씨",
+      "distance_km": 22.67,
+      "time_min": 29.7,
+      "capability_eok": 730.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 화성시 동학산2길 17,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 25,
+      "company": "(주)삼일씨엔에스",
+      "distance_km": 22.67,
+      "time_min": 29.7,
+      "capability_eok": 1016.2,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "경기도 화성시 동탄대로23길 121,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 26,
+      "company": "학선건설(주)",
+      "distance_km": 22.94,
+      "time_min": 24.8,
+      "capability_eok": 533.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 관악구 봉천7동 1595-1",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 27,
+      "company": "(주)우인건설",
+      "distance_km": 23.13,
+      "time_min": 24.2,
+      "capability_eok": 502.6,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 안양시 동안구 흥안대로 415,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 28,
+      "company": "(주)신한에스엔지",
+      "distance_km": 24.27,
+      "time_min": 24.9,
+      "capability_eok": 1401.5,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 영등포구 경인로 775, 2동 704호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 29,
+      "company": "(주)씨제이드",
+      "distance_km": 24.37,
+      "time_min": 25.9,
+      "capability_eok": 669.0,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 영등포구 신풍로 68",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 30,
+      "company": "지승건설(주)",
+      "distance_km": 24.54,
+      "time_min": 25.6,
+      "capability_eok": 570.9,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강서구 화곡로 149, 503호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 31,
+      "company": "(주)옥당산업",
+      "distance_km": 24.56,
+      "time_min": 25.9,
+      "capability_eok": 502.4,
+      "domains": [
+        "구조물해체·비계"
+      ],
+      "address": "서울특별시 영등포구 문래북로 83, 4층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 32,
+      "company": "대주중공업(주)",
+      "distance_km": 24.85,
+      "time_min": 24.4,
+      "capability_eok": 1411.7,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "인천광역시 제물포구 신포로 4 (사동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 33,
+      "company": "(주)원전건설",
+      "distance_km": 24.95,
+      "time_min": 25.9,
+      "capability_eok": 1412.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 영등포구 영신로 166, 1004호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 34,
+      "company": "마천건설(주)",
+      "distance_km": 25.02,
+      "time_min": 26.3,
+      "capability_eok": 643.0,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울시 영등포구 양평동3가 15-1",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 35,
+      "company": "우창건설(주)",
+      "distance_km": 25.48,
+      "time_min": 26.4,
+      "capability_eok": 729.8,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강서구 마곡중앙1로 20, 903호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 36,
+      "company": "(주)아이엘이앤씨",
+      "distance_km": 25.55,
+      "time_min": 27.6,
+      "capability_eok": 1671.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 영등포구 양평로21길 26, 제26층 2609호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 37,
+      "company": "대보실업(주)",
+      "distance_km": 25.6,
+      "time_min": 26.1,
+      "capability_eok": 1698.6,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트"
+      ],
+      "address": "경기도 화성시 매송면 매송고색로",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "관련 공고 없음(26.07.25)"
+    },
+    {
+      "rank": 38,
+      "company": "발해건설(주)",
+      "distance_km": 25.77,
+      "time_min": 27.8,
+      "capability_eok": 746.9,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 영등포구 양평로 157, 1401호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 39,
+      "company": "(주)조형기술개발",
+      "distance_km": 26.15,
+      "time_min": 26.7,
+      "capability_eok": 1706.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 방배천로22길 8, 201호 301호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 40,
+      "company": "(주)세보엠이씨",
+      "distance_km": 26.22,
+      "time_min": 27.0,
+      "capability_eok": 1047.1,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트",
+        "구조물해체·비계",
+        "상·하수도설비",
+        "철강구조물"
+      ],
+      "address": "서울특별시 서초구 효령로 341",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "사람인·잡코리아 채용공고 없음(26.07.25)"
+    },
+    {
+      "rank": 41,
+      "company": "(주)경수제철건설",
+      "distance_km": 26.24,
+      "time_min": 26.8,
+      "capability_eok": 1677.5,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 영등포구 국회대로 638",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 42,
+      "company": "성도건설산업(주)",
+      "distance_km": 26.34,
+      "time_min": 28.1,
+      "capability_eok": 912.2,
+      "domains": [
+        "구조물해체·비계"
+      ],
+      "address": "서울특별시 영등포구 국회대로62길 14, 6층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 43,
+      "company": "신두건설(주)",
+      "distance_km": 26.59,
+      "time_min": 27.9,
+      "capability_eok": 712.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서초구 방배동 936-8",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 44,
+      "company": "(주)참마루건설",
+      "distance_km": 26.62,
+      "time_min": 27.2,
+      "capability_eok": 631.9,
+      "domains": [
+        "구조물해체·비계"
+      ],
+      "address": "서울시 영등포구 여의도동 35",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 45,
+      "company": "(주)대황건설",
+      "distance_km": 26.92,
+      "time_min": 28.3,
+      "capability_eok": 811.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 효령로29길 39, 302호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 46,
+      "company": "(주)올레건설",
+      "distance_km": 26.94,
+      "time_min": 27.8,
+      "capability_eok": 992.8,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 영등포구 국회대로70길 15-1, 705호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 47,
+      "company": "산성개발(주)",
+      "distance_km": 27.53,
+      "time_min": 28.4,
+      "capability_eok": 513.0,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 영등포구 63로 36, 6층 602호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 48,
+      "company": "(주)엔아이스틸",
+      "distance_km": 28.49,
+      "time_min": 28.7,
+      "capability_eok": 878.4,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 동작구 동작대로 35",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 49,
+      "company": "건설철강(주)",
+      "distance_km": 28.63,
+      "time_min": 29.4,
+      "capability_eok": 645.7,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "인천광역시 서해구 대평로 4(연희동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 50,
+      "company": "(주)성보씨엔이",
+      "distance_km": 28.72,
+      "time_min": 29.6,
+      "capability_eok": 1404.7,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 서초대로40길 49, 4층",
+      "status": "공고없음",
+      "checked_at": "2026-07-25",
+      "note": "관련 공고 없음(26.07.25)"
+    },
+    {
+      "rank": 51,
+      "company": "(주)영화엔지니어링",
+      "distance_km": 28.92,
+      "time_min": 29.4,
+      "capability_eok": 1257.5,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 마포구 삼개로 16, 504호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 52,
+      "company": "개일건설(주)",
+      "distance_km": 29.04,
+      "time_min": 30.5,
+      "capability_eok": 653.3,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서초구 서초동 1599-11",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 53,
+      "company": "레오개발(주)",
+      "distance_km": 29.04,
+      "time_min": 30.5,
+      "capability_eok": 904.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서초구 서초동 1635-1",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 54,
+      "company": "태한건설(주)",
+      "distance_km": 29.04,
+      "time_min": 30.5,
+      "capability_eok": 789.4,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서초구 서초동 1355-3",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 55,
+      "company": "고이건설(주)",
+      "distance_km": 29.15,
+      "time_min": 30.4,
+      "capability_eok": 1088.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 효령로68길 32, 301호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 56,
+      "company": "세석건설(주)",
+      "distance_km": 29.17,
+      "time_min": 29.8,
+      "capability_eok": 957.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 서초대로 88, 4층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 57,
+      "company": "(주)원석건설",
+      "distance_km": 29.17,
+      "time_min": 29.8,
+      "capability_eok": 561.8,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 서초대로 88, 7층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 58,
+      "company": "(주)휘강건설",
+      "distance_km": 29.46,
+      "time_min": 32.0,
+      "capability_eok": 1161.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 서해구 청라한내로 110, 에이동 1502호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 59,
+      "company": "(주)월드플랜",
+      "distance_km": 29.55,
+      "time_min": 30.4,
+      "capability_eok": 1740.4,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 서초구 서초대로46길 99, 4층 4009호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 60,
+      "company": "(주)성지제강",
+      "distance_km": 29.56,
+      "time_min": 29.9,
+      "capability_eok": 562.0,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울특별시 서초구 신반포로 311, 5층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 61,
+      "company": "(주)성호에스씨",
+      "distance_km": 29.81,
+      "time_min": 31.1,
+      "capability_eok": 505.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 수원시 팔달구 경수대로446번길 57 (인계동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 62,
+      "company": "(주)신보",
+      "distance_km": 29.81,
+      "time_min": 30.5,
+      "capability_eok": 690.7,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울시 마포구 신공덕동 146-59",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 63,
+      "company": "강산개발(주)",
+      "distance_km": 30.18,
+      "time_min": 31.8,
+      "capability_eok": 1020.2,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 도곡로1길 25, 5층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 64,
+      "company": "신건설(주)",
+      "distance_km": 30.21,
+      "time_min": 31.5,
+      "capability_eok": 1621.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 수원시 팔달구 권광로207번길 36,",
+      "status": "job-radar 등록됨",
+      "checked_at": "2026-07-25",
+      "note": "이미 job-radar 공고 DB에 등록된 회사(26.07.25 기준)"
+    },
+    {
+      "rank": 65,
+      "company": "광혁건설(주)",
+      "distance_km": 30.27,
+      "time_min": 30.7,
+      "capability_eok": 1423.2,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서초구 양재동 108-7",
+      "status": "현장직만",
+      "checked_at": "2026-07-25",
+      "note": "전국 현장 공사·공무 공고만(26.07.25)"
+    },
+    {
+      "rank": 66,
+      "company": "(주)공진산업개발",
+      "distance_km": 30.55,
+      "time_min": 31.2,
+      "capability_eok": 546.1,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 서초구 동산로6길 18, 3층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 67,
+      "company": "(주)부강티엔씨",
+      "distance_km": 30.6,
+      "time_min": 32.1,
+      "capability_eok": 1373.4,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 논현로63길 8, 5층, 지산빌딩",
+      "status": "job-radar 등록됨",
+      "checked_at": "2026-07-25",
+      "note": "이미 job-radar 공고 DB에 등록된 회사(26.07.25 기준)"
+    },
+    {
+      "rank": 68,
+      "company": "(주)한국교량",
+      "distance_km": 30.7,
+      "time_min": 31.8,
+      "capability_eok": 583.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "인천광역시 서해구 승학로 561 (검암동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 69,
+      "company": "(주)제이아이엔피",
+      "distance_km": 30.71,
+      "time_min": 27.6,
+      "capability_eok": 609.9,
+      "domains": [
+        "구조물해체·비계"
+      ],
+      "address": "경기도 수원시 영통구 창룡대로256번길 77,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 70,
+      "company": "금웅건설(주)",
+      "distance_km": 30.82,
+      "time_min": 32.4,
+      "capability_eok": 840.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 도곡로21길 18, 4층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 71,
+      "company": "씨이에프건설(주)",
+      "distance_km": 31.14,
+      "time_min": 32.0,
+      "capability_eok": 878.7,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 논현로30길 21, 4층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 72,
+      "company": "제이엠에스건설(주)",
+      "distance_km": 31.18,
+      "time_min": 32.2,
+      "capability_eok": 803.9,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 테헤란로20길 27, 5층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 73,
+      "company": "(주)인건토건",
+      "distance_km": 31.22,
+      "time_min": 31.3,
+      "capability_eok": 1193.2,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 마포구 월드컵북로 111, 5층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 74,
+      "company": "대자기업(주)",
+      "distance_km": 31.4,
+      "time_min": 31.7,
+      "capability_eok": 580.8,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 서초구 바우뫼로 154, 3층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 75,
+      "company": "(주)왕용건설",
+      "distance_km": 31.47,
+      "time_min": 33.1,
+      "capability_eok": 659.1,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 서대문구 연희동 81-16",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 76,
+      "company": "하성이앤씨건설(주)",
+      "distance_km": 31.52,
+      "time_min": 33.1,
+      "capability_eok": 635.1,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 논현로 213, 302호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 77,
+      "company": "(주)범양이엔씨",
+      "distance_km": 31.57,
+      "time_min": 32.9,
+      "capability_eok": 1254.5,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울시 용산구 동빙고동 7-14",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 78,
+      "company": "코암시앤시개발(주)",
+      "distance_km": 31.57,
+      "time_min": 31.8,
+      "capability_eok": 937.0,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 논현로 172, 601호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 79,
+      "company": "한맥중공업(주)",
+      "distance_km": 32.1,
+      "time_min": 33.0,
+      "capability_eok": 1577.7,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "경기도 화성시 서신면 백미길 46",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 80,
+      "company": "구산토건(주)",
+      "distance_km": 32.18,
+      "time_min": 33.4,
+      "capability_eok": 517.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 강남구 논현동 59-8",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 81,
+      "company": "(주)대홍에이스건업",
+      "distance_km": 32.74,
+      "time_min": 33.8,
+      "capability_eok": 610.0,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 도산대로 176, 403호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 82,
+      "company": "일우건설(주)",
+      "distance_km": 33.13,
+      "time_min": 34.4,
+      "capability_eok": 1342.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 학동로47길 6, 1층 102호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 83,
+      "company": "선풍토건(주)",
+      "distance_km": 33.28,
+      "time_min": 34.2,
+      "capability_eok": 624.2,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 언주로148길 14, 나동 301호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 84,
+      "company": "서천건설(주)",
+      "distance_km": 33.54,
+      "time_min": 35.2,
+      "capability_eok": 1762.1,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 삼성로96길 19, 5층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 85,
+      "company": "에이치씨디건설(주)",
+      "distance_km": 33.77,
+      "time_min": 34.4,
+      "capability_eok": 1229.3,
+      "domains": [
+        "지반조성·포장",
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 역삼로 552, 6층 7층 702호",
+      "status": "job-radar 등록됨",
+      "checked_at": "2026-07-25",
+      "note": "이미 job-radar 공고 DB에 등록된 회사(26.07.25 기준)"
+    },
+    {
+      "rank": 86,
+      "company": "삼표레일웨이(주)",
+      "distance_km": 33.89,
+      "time_min": 35.0,
+      "capability_eok": 817.5,
+      "domains": [
+        "철도·궤도"
+      ],
+      "address": "서울특별시 종로구 종로1길 42, 14층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 87,
+      "company": "(주)후레씨네코리아",
+      "distance_km": 34.25,
+      "time_min": 36.0,
+      "capability_eok": 551.1,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 삼성로 555, 2층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 88,
+      "company": "대흥건설(주)",
+      "distance_km": 34.68,
+      "time_min": 35.7,
+      "capability_eok": 700.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 강남구 영동대로 702, 400호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 89,
+      "company": "한양이엔지(주)",
+      "distance_km": 34.83,
+      "time_min": 35.6,
+      "capability_eok": 505.1,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "경기도 화성시 영통로26번길 72",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 90,
+      "company": "광영개발(주)",
+      "distance_km": 34.88,
+      "time_min": 36.7,
+      "capability_eok": 794.7,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 고양시 덕양구 중앙로 560 (행신동)",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 91,
+      "company": "부경산업개발(주)",
+      "distance_km": 34.98,
+      "time_min": 33.8,
+      "capability_eok": 549.2,
+      "domains": [
+        "수중·준설"
+      ],
+      "address": "경기도 성남시 분당구 판교역로 231,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 92,
+      "company": "대성건설(주)",
+      "distance_km": 35.09,
+      "time_min": 36.3,
+      "capability_eok": 924.2,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "경기도 수원시 영통구 청명남로 39,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 93,
+      "company": "(주)한준건설",
+      "distance_km": 35.12,
+      "time_min": 33.9,
+      "capability_eok": 756.4,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "경기도 성남시 분당구 분당내곡로 151,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 94,
+      "company": "(주)이테크건설산업",
+      "distance_km": 35.2,
+      "time_min": 36.0,
+      "capability_eok": 904.9,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 중구 퇴계로 264, 8층",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 95,
+      "company": "(주)범강",
+      "distance_km": 35.52,
+      "time_min": 33.9,
+      "capability_eok": 713.4,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "경기도 성남시 수정구 대왕판교로 935,",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 96,
+      "company": "(주)토방건설",
+      "distance_km": 35.67,
+      "time_min": 36.7,
+      "capability_eok": 568.3,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울시 강남구 수서동 713",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 97,
+      "company": "첨단개발(주)",
+      "distance_km": 35.81,
+      "time_min": 36.0,
+      "capability_eok": 686.3,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 밤고개로 227, 비동 204호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 98,
+      "company": "현대건설(주)",
+      "distance_km": 35.88,
+      "time_min": 37.9,
+      "capability_eok": 1407.2,
+      "domains": [
+        "철강구조물"
+      ],
+      "address": "서울시 종로구 계동 140-2",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 99,
+      "company": "운호엔지니어링(주)",
+      "distance_km": 35.99,
+      "time_min": 36.3,
+      "capability_eok": 648.5,
+      "domains": [
+        "지반조성·포장"
+      ],
+      "address": "서울특별시 강남구 밤고개로1길 10, 1124호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    },
+    {
+      "rank": 100,
+      "company": "배성건설(주)",
+      "distance_km": 35.99,
+      "time_min": 36.3,
+      "capability_eok": 1070.5,
+      "domains": [
+        "철근·콘크리트"
+      ],
+      "address": "서울특별시 강남구 밤고개로1길 10, 1628호",
+      "status": "미확인",
+      "checked_at": "",
+      "note": ""
+    }
   ]
 }</script>
 
@@ -5800,6 +7238,7 @@
     state.jobs = (snap.jobs||[]).slice();
     state.lastCollected = (snap.meta && snap.meta.last_collected) || "—";
     state.applications = (snap.applications||[]).slice();
+    state.watchlist = (snap.watchlist||[]).slice();
   }catch(e){ console.error("snapshot parse fail", e); }
 
   // helpers
@@ -6003,7 +7442,27 @@
     }).join("");
     el.innerHTML=head+'<div class="apps-table">'+rows+'</div>';
   }
-  function renderAll(){ renderStats(); renderApps(); renderList(); document.getElementById("lastCollected").textContent = state.lastCollected; }
+
+  function renderWatchlist(){
+    var el=document.getElementById("watchlist"); if(!el) return;
+    var w=state.watchlist||[];
+    if(!w.length){ el.innerHTML=""; return; }
+    var checkedN = w.filter(function(x){return x.status!=="미확인";}).length;
+    var head='<div class="watchlist-head" id="wlToggle"><span>관심기업 워치리스트 · 우량 전문건설 TOP100 (시흥 통근거리순)</span><span class="wl-c">'+checkedN+'/'+w.length+' 확인 · 펼치기 ▾</span></div>';
+    var sub='<div class="watchlist-sub">KOSCA 시공능력평가 500~2,000억 + 지반조성/철근콘크리트 등 면허보유사 — 거리순. 회사명 검색으로 공고유무 확인, 없으면 이력서 직접제출 후보.</div>';
+    var rowsHead='<div class="wl-row head"><span>#</span><span>회사명</span><span>거리</span><span>평가액</span><span>업종</span><span>상태</span></div>';
+    var rows=w.map(function(x){
+      var cls = x.status==="미확인"?"todo":(x.status==="현장직만"?"siteonly":(x.status==="job-radar 등록됨"?"tracked":"none"));
+      return '<div class="wl-row"><span>'+x.rank+'</span><span class="wl-co" title="'+esc(x.note||"")+'">'+esc(x.company)+'</span><span class="wl-dist">'+x.distance_km+'km·'+x.time_min+'분</span><span class="wl-cap">'+x.capability_eok+'억</span><span class="wl-dom">'+esc((x.domains||[]).join(", "))+'</span><span class="wl-status '+cls+'">'+esc(x.status)+'</span></div>';
+    }).join("");
+    el.innerHTML = head+sub+'<div class="wl-table" id="wlTable">'+rowsHead+rows+'</div>';
+    document.getElementById("wlToggle").addEventListener("click", function(){
+      var t=document.getElementById("wlTable"); var open=t.classList.toggle("open");
+      this.querySelector(".wl-c").textContent = checkedN+'/'+w.length+' 확인 · '+(open?'접기 ▴':'펼치기 ▾');
+    });
+  }
+
+  function renderAll(){ renderStats(); renderApps(); renderWatchlist(); renderList(); document.getElementById("lastCollected").textContent = state.lastCollected; }
 
   function setTrack(id, patch){
     var cur = trackOf(id);
