@@ -7862,21 +7862,22 @@
 
   function entryHTML(j, rank){
     var t = trackOf(j.id), tier=j._tier||tierOf(j.fit_score);
+    var isApplied = t.applied || !!j.app_status;
     var tags = (isPayment(j)?'<span class="tag pay">📍 수도권</span>':"")
              + (j.domains||[]).map(function(d){return '<span class="tag dom">'+esc(d)+'</span>';}).join("")
              + (j.scale?'<span class="tag">'+esc(j.scale)+'</span>':"")
              + (j.exp?'<span class="tag">경력 '+esc(j.exp)+'</span>':"");
     var reasons = (j.fit_reasons||[]).map(function(r){return '<li>'+esc(r)+'</li>';}).join("");
+    var detailBlock = isApplied
+      ? '<div class="tags">'+tags+'</div>'+processBlock(j)
+      : weaponLine(j)+'<div class="tags">'+tags+'</div>'+processBlock(j)+'<ul class="reasons">'+reasons+'</ul>';
     return ''+
     '<article class="entry'+(t.applied?' applied':'')+'" data-id="'+esc(j.id)+'">'+
       '<div class="rank">'+rank+'</div>'+
       '<div class="entry-main">'+
         '<h2><span class="co">'+esc(j.company)+'</span> · <span class="ttl">'+esc(j.title)+'</span>'+(j.is_new?'<span class="newtag">NEW</span>':'')+stratBadge(j)+'</h2>'+
         '<div class="meta-line">'+ddayChip(j)+(j.app_status?'<span class="appstat">'+esc(j.app_status)+'</span>':'')+'<span class="sep">·</span><span>'+esc(j.level||"")+'</span><span class="sep">·</span>'+(j.map_url?'<a class="maplink" href="'+esc(j.map_url)+'" target="_blank" rel="noopener">'+esc(j.location||"[요확인]")+' 📍</a>':'<span>'+esc(j.location||"")+'</span>')+'<span class="sep">·</span>'+(j.source_url?'<a class="srclink" href="'+esc(j.source_url)+'" target="_blank" rel="noopener">'+esc(j.source||"")+' ↗</a>':'<span>'+esc(j.source||"")+'</span>')+'</div>'+
-        weaponLine(j)+
-        '<div class="tags">'+tags+'</div>'+
-        processBlock(j)+
-        '<ul class="reasons">'+reasons+'</ul>'+
+        detailBlock+
         '<div class="actions">'+
           '<a class="viewlink" href="'+esc(j.url)+'" target="_blank" rel="noopener">'+(j.url_verified===false?'공고 보기(검색·확인중) ↗':'공고 보기 ↗')+'</a>'+
           '<button class="brief-btn" data-act="brief">정보 보기 ▾</button>'+
