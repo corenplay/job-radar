@@ -7884,7 +7884,7 @@
           '<label class="applybox"><input type="checkbox" data-act="apply" '+(t.applied?'checked':'')+'/> 지원함</label>'+
           '<input class="noteinput" data-act="note" placeholder="메모 추가…" value="'+esc(t.notes||"")+'"/>'+
         '</div>'+
-        '<div class="brief-panel">'+briefHTML(j)+'</div>'+
+        '<div class="brief-panel">'+briefHTML(j)+(isApplied&&reasons?'<div class="bsec"><div class="blabel">적합도 근거 (통근 포함)</div><ul class="reasons">'+reasons+'</ul></div>':'')+'</div>'+
       '</div>'+
       '<div class="score">'+
         '<div class="val">'+j.fit_score+'</div>'+
