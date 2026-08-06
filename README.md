@@ -49,3 +49,4 @@ git push -u origin main
 - 단일 HTML 파일이라 Pages가 별도 빌드 없이 그대로 서빙합니다.
 - 공고를 갱신할 때마다 `index.html` 만 다시 커밋·푸시하면 됩니다.
 - 공개 저장소이면 URL을 아는 사람은 누구나 볼 수 있습니다. 회사·연봉 메모 등 민감 정보는 공고 데이터에 넣지 마세요. 비공개로 두려면 Private 저장소 + GitHub Pages(Pro) 또는 로컬에서 `index.html` 더블클릭으로 사용하세요.
+<!-- rebuild trigger 2026-08-06 22:10 KST -->
