@@ -177,14 +177,16 @@
   .apps-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);font-weight:700;font-size:14px;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:8px;}
   .apps-head .apps-c{font-size:11.5px;color:#8a857c;font-weight:600;}
   .apps-empty{font-size:13px;color:var(--ink-soft);font-style:italic;padding:6px 2px;}
-  .apps-row{display:grid;grid-template-columns:1.4fr 1.6fr .7fr .8fr .7fr;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px solid var(--line);font-size:13px;}
+  .apps-row{display:grid;grid-template-columns:1.3fr 1.5fr .6fr .85fr .5fr .65fr;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px solid var(--line);font-size:13px;}
   .apps-row:last-child{border-bottom:0;}
   .apps-co{font-weight:700;} .apps-co a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
   .apps-pos{color:var(--ink-soft);} .apps-site{font-size:11.5px;color:#8a857c;}
   .apps-st{font-weight:800;font-size:11px;padding:2px 8px;border-radius:5px;background:#e4efe9;color:#1f6f5c;text-align:center;}
   .apps-st.gold{background:#f1e9d4;color:#9a7b2e;} .apps-st.red{background:#eeebe5;color:#b6432e;}
+  .apps-ap{font-size:11.5px;color:#6b6459;text-align:center;font-weight:700;}
+  .apps-ap.few{color:#1f6f5c;} .apps-ap.many{color:#b6432e;}
   .apps-dt{font-size:11.5px;color:#8a857c;text-align:right;}
-  @media(max-width:680px){.apps-row{grid-template-columns:1fr 1fr;}.apps-site,.apps-dt{display:none;}}
+  @media(max-width:680px){.apps-row{grid-template-columns:1fr 1fr;}.apps-site,.apps-dt,.apps-ap{display:none;}}
 
   .watchlist{margin:18px 0 6px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:14px 16px;}
   .watchlist-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-weight:700;font-size:14px;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:8px;cursor:pointer;}
@@ -287,7 +289,7 @@
 <!-- ===== EMBEDDED SNAPSHOT (Firebase 미연결/오프라인 폴백) ===== -->
 <script id="jobs-data" type="application/json">{
   "meta": {
-    "last_collected": "2026-08-06 17:04",
+    "last_collected": "2026-08-06 17:35",
     "commute_basis": "시흥능곡역(서해선) 기준 통근 4단계 (26.07.25 델타 2배 확대: T1+6/T2+4/T3 0/T4-6)",
     "filter_policy": "전문건설 본사공무 우선 · 매출 400억 이상 · 연봉 하한 7,000만 · 통근 35km 이내 · 종합건설은 B · 현장근무 제외",
     "url_policy": "공고보기 링크 = 확인된 원본 공고 직링크 우선(브라우저 상세확인 시 rec_idx/GI_Read 저장). 직링크 미확보 건은 기업명 검색페이지로 임시 대체(url_verified=false).",
@@ -1782,7 +1784,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 미열람 · 진행중(~10/25)",
       "date": "2026-08-06",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": null
     },
     {
       "company": "케이에이치건설㈜",
@@ -1790,7 +1793,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 미열람 · 진행중(~08/21) · 지원자 51명",
       "date": "2026-08-05",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 51
     },
     {
       "company": "한국콘크리트산업㈜",
@@ -1798,7 +1802,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 미열람 · 진행중(~08/23) · 지원자 3명",
       "date": "2026-08-05",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 3
     },
     {
       "company": "강산종합건설㈜",
@@ -1806,7 +1811,8 @@
       "site": "사람인",
       "status": "지원완료 · 미열람",
       "date": "2026-08-05",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "삼일건설기업㈜",
@@ -1814,7 +1820,8 @@
       "site": "사람인",
       "status": "지원완료 · 열람",
       "date": "2026-08-01",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "㈜개성건설",
@@ -1822,7 +1829,8 @@
       "site": "사람인",
       "status": "지원완료 · 열람",
       "date": "2026-08-01",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "에프앤디홀딩스 유한책임회사",
@@ -1830,7 +1838,8 @@
       "site": "사람인",
       "status": "지원완료 · 열람",
       "date": "2026-08-01",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "㈜삼조건설",
@@ -1838,7 +1847,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 미열람 · 접수마감(서류검토중) · 지원자 27명",
       "date": "2026-07-23",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 27
     },
     {
       "company": "승전종합건설㈜",
@@ -1846,7 +1856,8 @@
       "site": "사람인",
       "status": "지원완료 · 열람",
       "date": "2026-07-23",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "에이치씨디건설㈜",
@@ -1854,7 +1865,8 @@
       "site": "사람인",
       "status": "지원완료 · 열람",
       "date": "2026-07-23",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "지성건설산업㈜",
@@ -1862,7 +1874,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감(서류검토중) · 지원자 10명",
       "date": "2026-07-14",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 10
     },
     {
       "company": "씨에이이앤씨㈜",
@@ -1870,7 +1883,8 @@
       "site": "사람인",
       "status": "지원완료 · 미열람",
       "date": "2026-07-08",
-      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list"
+      "url": "https://www.saramin.co.kr/zf_user/persons/apply-status-list",
+      "applicants": null
     },
     {
       "company": "㈜삼건사",
@@ -1878,7 +1892,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 62명",
       "date": "2026-07-07",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 62
     },
     {
       "company": "㈜월드이앤씨",
@@ -1886,7 +1901,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 29명",
       "date": "2026-06-11",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 29
     },
     {
       "company": "혜우이엔씨㈜",
@@ -1894,7 +1910,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 미열람 · 접수마감 · 지원자 29명",
       "date": "2026-06-11",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 29
     },
     {
       "company": "㈜플러스종합건설",
@@ -1902,7 +1919,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 52명",
       "date": "2026-06-11",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 52
     },
     {
       "company": "한일이앤씨 주식회사",
@@ -1910,7 +1928,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 77명",
       "date": "2026-06-11",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 77
     },
     {
       "company": "㈜에스티",
@@ -1918,7 +1937,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 21명",
       "date": "2026-06-04",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 21
     },
     {
       "company": "혜우이엔씨㈜",
@@ -1926,7 +1946,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 60명",
       "date": "2026-06-04",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 60
     },
     {
       "company": "도경종합건설㈜",
@@ -1934,7 +1955,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 43명",
       "date": "2026-06-04",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 43
     },
     {
       "company": "대운건설㈜",
@@ -1942,7 +1964,8 @@
       "site": "잡코리아",
       "status": "지원완료 · 열람 · 접수마감 · 지원자 10명",
       "date": "2026-06-03",
-      "url": "https://www.jobkorea.co.kr/User/ApplyMng"
+      "url": "https://www.jobkorea.co.kr/User/ApplyMng",
+      "applicants": 10
     }
   ],
   "watchlist": [
@@ -3579,7 +3602,12 @@
     var rows=a.map(function(x){
       var cls=statusClass(x.status);
       var co=x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.company||"")+'</a>':esc(x.company||"");
-      return '<div class="apps-row"><span class="apps-co">'+co+'</span><span class="apps-pos">'+esc(x.position||"")+'</span><span class="apps-site">'+esc(x.site||"")+'</span><span class="apps-st '+cls+'">'+esc(x.status||"-")+'</span><span class="apps-dt">'+esc(x.date||"")+'</span></div>';
+      var ap = x.applicants;
+      if(ap==null){ var mm=/지원자\s*(\d+)\s*명/.exec(x.status||""); ap = mm? parseInt(mm[1],10) : null; }
+      var apCls = ap==null ? "" : (ap<=15 ? " few" : (ap>=50 ? " many" : ""));
+      var apTxt = ap==null ? "-" : (ap+"명");
+      var st = esc((x.status||"-").replace(/\s*·?\s*지원자\s*\d+\s*명/,""));
+      return '<div class="apps-row"><span class="apps-co">'+co+'</span><span class="apps-pos">'+esc(x.position||"")+'</span><span class="apps-site">'+esc(x.site||"")+'</span><span class="apps-st '+cls+'">'+st+'</span><span class="apps-ap'+apCls+'" title="총 지원자 수">'+apTxt+'</span><span class="apps-dt">'+esc(x.date||"")+'</span></div>';
     }).join("");
     el.innerHTML=head+'<div class="apps-table">'+rows+'</div>';
   }
